@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Krishan — Portfolio</title>
+  <style>
+    :root {
+      --bg: #fafafa;
+      --surface: #ffffff;
+      --text: #1a1a1a;
+      --text-muted: #555;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --border: #e5e7eb;
+      --radius: 10px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ---- NAV ---- */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(250,250,250,.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+      padding: 0 2rem;
+    }
+    nav .inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 56px;
+    }
+    nav .logo {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text);
+      text-decoration: none;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    nav a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: .9rem;
+      transition: color .2s;
+    }
+    nav a:hover { color: var(--accent); }
+
+    /* ---- SECTIONS ---- */
+    section {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      margin-bottom: 2rem;
+      position: relative;
+      display: inline-block;
+    }
+    h2::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 40px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    /* ---- HERO ---- */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 56px;
+    }
+    .hero .greeting {
+      font-size: 1.1rem;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: .5rem;
+    }
+    .hero h1 {
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 540px;
+      margin-bottom: 2rem;
+    }
+    .hero .cta-group { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-block;
+      padding: .7rem 1.6rem;
+      border-radius: var(--radius);
+      font-size: .95rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background .2s, color .2s;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+    .btn-primary:hover { background: #1d4ed8; }
+    .btn-outline {
+      border: 1.5px solid var(--border);
+      color: var(--text);
+    }
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* ---- ABOUT ---- */
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .about-content p { color: var(--text-muted); margin-bottom: 1rem; }
+    .info-list { list-style: none; }
+    .info-list li {
+      display: flex;
+      gap: .5rem;
+      padding: .5rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: .95rem;
+    }
+    .info-list .label {
+      font-weight: 600;
+      min-width: 100px;
+    }
+
+    /* ---- SKILLS ---- */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+    .skill-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      transition: border-color .2s;
+    }
+    .skill-card:hover { border-color: var(--accent); }
+    .skill-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: .75rem;
+    }
+    .tags { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .tag {
+      background: var(--accent-light);
+      color: var(--accent);
+      padding: .25rem .7rem;
+      border-radius: 20px;
+      font-size: .8rem;
+      font-weight: 500;
+    }
+
+    /* ---- EXPERIENCE ---- */
+    .timeline { position: relative; padding-left: 2rem; }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: var(--border);
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2.5rem;
+    }
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -2rem;
+      top: 8px;
+      width: 10px;
+      height: 10px;
+      background: var(--accent);
+      border-radius: 50%;
+      transform: translateX(-4px);
+    }
+    .timeline-item h3 { font-size: 1.1rem; }
+    .timeline-item .company {
+      color: var(--accent);
+      font-weight: 500;
+      font-size: .95rem;
+    }
+    .timeline-item .date {
+      color: var(--text-muted);
+      font-size: .85rem;
+      margin-bottom: .5rem;
+    }
+    .timeline-item p { color: var(--text-muted); font-size: .95rem; }
+
+    /* ---- PROJECTS ---- */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      transition: border-color .2s, transform .2s;
+    }
+    .project-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+    }
+    .project-card h3 { font-size: 1.05rem; margin-bottom: .5rem; }
+    .project-card p {
+      color: var(--text-muted);
+      font-size: .9rem;
+      flex: 1;
+      margin-bottom: 1rem;
+    }
+    .project-links { display: flex; gap: 1rem; }
+    .project-links a {
+      color: var(--accent);
+      font-size: .85rem;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .project-links a:hover { text-decoration: underline; }
+
+    /* ---- CONTACT ---- */
+    .contact-content {
+      text-align: center;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+    .contact-content p {
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+    }
+    .social-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: .9rem;
+      font-weight: 500;
+      padding: .5rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: all .2s;
+    }
+    .social-links a:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* ---- FOOTER ---- */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--text-muted);
+      font-size: .85rem;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 680px) {
+      .about-content { grid-template-columns: 1fr; gap: 1.5rem; }
+      nav ul { gap: .75rem; }
+      nav a { font-size: .8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <div class="inner">
+      <a href="#" class="logo">KB.</a>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#highlights">Impact</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <p class="greeting">Hi, I'm</p>
+    <h1>Krishan Bhagat.</h1>
+    <p>Engineering leader with 12+ years building production systems across AI/ML, security, Rust, and cross-platform infrastructure &mdash; from Microsoft-scale device management to founding-engineer roles at AI startups.</p>
+    <div class="cta-group">
+      <a href="#highlights" class="btn btn-primary">See My Impact</a>
+      <a href="#contact" class="btn btn-outline">Get in Touch</a>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="about-content">
+      <div>
+        <p>I'm a software engineer and technical leader with deep experience shipping high-impact systems at scale. At Microsoft, I own cross-platform device management across iOS, macOS, and Linux &mdash; including a Rust-based Linux client &mdash; driving security, automation, and AI adoption across teams. I've resolved critical incidents affecting tens of thousands of devices, built automation that became the org-wide standard, and led Day 0 platform readiness for major OS releases.</p>
+        <p>As Principal Founding Engineer at Thundergraph, I built core AI infrastructure from scratch, drove SOC 2 compliance, and delivered systems that earned direct recognition from the CEO and CTO for outsized impact.</p>
+        <p>I hold an M.S. in Computer Science (Machine Learning &amp; Robotics) and a B.S. in Computer Engineering from Georgia Tech. I've spent my career at the intersection of AI, systems engineering, and security &mdash; and I'm looking for the next opportunity to lead at that intersection.</p>
+      </div>
+      <ul class="info-list">
+        <li><span class="label">Location</span> <span>Atlanta, GA (Remote)</span></li>
+        <li><span class="label">Email</span> <span>kbhagat6@gatech.edu</span></li>
+        <li><span class="label">Education</span> <span>Georgia Institute of Technology</span></li>
+        <li><span class="label">M.S.</span> <span>Computer Science (ML / Robotics) &mdash; 3.9 GPA</span></li>
+        <li><span class="label">B.S.</span> <span>Computer Engineering &mdash; 3.2 GPA</span></li>
+        <li><span class="label">Focus</span> <span>AI/ML, Rust, Security, Infrastructure</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h2>Skills &amp; Expertise</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>Languages</h3>
+        <div class="tags">
+          <span class="tag">Rust</span>
+          <span class="tag">Python</span>
+          <span class="tag">Java</span>
+          <span class="tag">C++</span>
+          <span class="tag">Swift</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">Node.js</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>AI / ML</h3>
+        <div class="tags">
+          <span class="tag">Deep Learning</span>
+          <span class="tag">LSTMs</span>
+          <span class="tag">Reinforcement Learning</span>
+          <span class="tag">Computer Vision</span>
+          <span class="tag">NLP / LLMs</span>
+          <span class="tag">Time Series</span>
+          <span class="tag">Copilot Agents</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Security &amp; Compliance</h3>
+        <div class="tags">
+          <span class="tag">SOC 2</span>
+          <span class="tag">TPM</span>
+          <span class="tag">SSL/TLS</span>
+          <span class="tag">OCSP Stapling</span>
+          <span class="tag">SSO / Auth</span>
+          <span class="tag">MDM</span>
+          <span class="tag">Jailbreak Detection</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Infrastructure &amp; Platforms</h3>
+        <div class="tags">
+          <span class="tag">Azure</span>
+          <span class="tag">AWS</span>
+          <span class="tag">Docker</span>
+          <span class="tag">CI/CD</span>
+          <span class="tag">Jenkins</span>
+          <span class="tag">Graph API</span>
+          <span class="tag">Redis</span>
+          <span class="tag">PostgreSQL</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Leadership</h3>
+        <div class="tags">
+          <span class="tag">Cross-Org Strategy</span>
+          <span class="tag">Architecture</span>
+          <span class="tag">Mentorship</span>
+          <span class="tag">Incident Response</span>
+          <span class="tag">Technical Writing</span>
+          <span class="tag">Hackathon Winner</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Domains</h3>
+        <div class="tags">
+          <span class="tag">Device Management</span>
+          <span class="tag">Cross-Platform (iOS/macOS/Linux)</span>
+          <span class="tag">Healthcare</span>
+          <span class="tag">Automotive</span>
+          <span class="tag">Robotics</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <h3>Principal Founding Engineer</h3>
+        <span class="company">Thundergraph (AI Startup)</span>
+        <p class="date">Nov 2024 &mdash; Jan 2026 &middot; Part-time</p>
+        <p>Built core AI infrastructure from the ground up as the founding engineer. Designed and implemented the citations system, backend infrastructure, and drove SOC 2 compliance. Delivered impact recognized directly by CEO Echo Wu and CTO Michael Huang for outsized contributions to product quality and engineering velocity.</p>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Software Engineer</h3>
+        <span class="company">Microsoft &mdash; Intune / Endpoint Management</span>
+        <p class="date">Apr 2021 &mdash; Present</p>
+        <p>Own cross-platform device management for iOS, macOS, and Linux Company Portal (Rust). Drive security, automation, and AI adoption across the Intune org. Resolved critical incidents impacting tens of thousands of devices. Built tenant automation that became the org-wide baseline. Led Day 0 validation for macOS 26 and iOS 26. Architect Rust-based HTTP client with custom SSL/TLS, OCSP stapling, and TPM integration. Recognized for cross-org leadership and the "One Microsoft" mindset.</p>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Software Engineer, R&amp;D</h3>
+        <span class="company">NextGen Healthcare, Inc. &mdash; San Diego</span>
+        <p class="date">Oct 2019 &mdash; Apr 2021</p>
+        <p>Developed inbound/outbound message processors and ML-based customer attrition prediction using time series forecasting. Built ETL pipelines in Redshift, Jenkins deployment pipelines, redesigned the Patient Portal, and created a VR conversational agent using AWS Sumerian/Lex.</p>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Software Engineer, Global Sites</h3>
+        <span class="company">General Motors Corp. &mdash; Atlanta</span>
+        <p class="date">Jan 2016 &mdash; Oct 2019</p>
+        <p>Built a deep learning model (MLP + LSTM) analyzing social media sentiment that increased marketing campaign revenue and EBIT by 30%. Developed predictive IT dashboards with Microsoft Cognitive Services. Integrated Adobe Analytics across global GM sites. Built Spring Boot content archival systems and employee portals using Workday/SOAP APIs.</p>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Software Engineer Co-op</h3>
+        <span class="company">GTRI &mdash; Intelligence &amp; Robotics Division</span>
+        <p class="date">Jan 2014 &mdash; Aug 2015</p>
+        <p>Developed object recognition APIs for deformable modeling research: 3D pose estimation from depth maps, multi-scale HOG feature extraction, SVM, and KNNs. Built software for a vision-based humanoid robot using line template matching and point clouds for 3D visual servoing.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Impact Highlights -->
+  <section id="highlights">
+    <h2>Impact Highlights</h2>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <h3>Org-Wide Tenant Automation</h3>
+        <p>Built Graph API-based test tenant automation that became the baseline across multiple Intune teams. Saved days-to-weeks of manual setup per team. Authored and published comprehensive provisioning guidance in the engineering hub.</p>
+        <div class="tags" style="margin-bottom:1rem">
+          <span class="tag">Graph API</span>
+          <span class="tag">Automation</span>
+          <span class="tag">Cross-Org</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <h3>Critical macOS Disk Arbitration Fix</h3>
+        <p>Resolved a critical bug where the Sidecar agent blocked unmounting of all external drives during MDM app installations. Refactored arbitration logic and fixed concurrency issues, closing several high-impact ICMs affecting all customers.</p>
+        <div class="tags" style="margin-bottom:1rem">
+          <span class="tag">macOS</span>
+          <span class="tag">Concurrency</span>
+          <span class="tag">Incident Response</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <h3>PlatformSSO Threading Fix &mdash; 20K Devices</h3>
+        <p>Diagnosed and resolved a threading issue in the PlatformSSO flow in Mac Company Portal that was impacting 20,000 devices. Required cross-team coordination with Entra, CXEs, and customers due to the difficulty of reproduction.</p>
+        <div class="tags" style="margin-bottom:1rem">
+          <span class="tag">Threading</span>
+          <span class="tag">macOS</span>
+          <span class="tag">Scale</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <h3>Rust HTTP Client &amp; Security Hardening</h3>
+        <p>Architected the Rust HTTP client for Linux Company Portal with custom SSL/TLS certificate validation, OCSP stapling, and hostname verification using industry-standard OpenSSL. Eliminated compliance gaps and CG vulnerabilities.</p>
+        <div class="tags" style="margin-bottom:1rem">
+          <span class="tag">Rust</span>
+          <span class="tag">Security</span>
+          <span class="tag">OpenSSL</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <h3>Thundergraph &mdash; AI Infrastructure &amp; SOC 2</h3>
+        <p>As founding engineer, built the citations system and core backend infrastructure for an AI startup. Drove SOC 2 compliance from scratch. Impact directly recognized by the CEO and CTO for accelerating product delivery and engineering quality.</p>
+        <div class="tags" style="margin-bottom:1rem">
+          <span class="tag">AI</span>
+          <span class="tag">SOC 2</span>
+          <span class="tag">Founding Engineer</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <h3>AI Copilot Agents for Device Management</h3>
+        <p>Built AI copilot agents that analyze device enrollment, compliance, security configurations, and policy conflicts across Apple, Linux, and Windows &mdash; generating actionable reports to optimize security posture. Demoed to team, joined AI + Productivity V-team to expand AI across Intune.</p>
+        <div class="tags" style="margin-bottom:1rem">
+          <span class="tag">AI/ML</span>
+          <span class="tag">Copilot</span>
+          <span class="tag">Cross-Platform</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <h3>Deep Learning for Marketing ROI &mdash; +30% EBIT</h3>
+        <p>Built a deep learning model (multi-layered perceptron + LSTM) at General Motors that correlated social media sentiment with marketing campaign effectiveness, directly increasing revenue and EBIT by 30%.</p>
+        <div class="tags" style="margin-bottom:1rem">
+          <span class="tag">Deep Learning</span>
+          <span class="tag">LSTM</span>
+          <span class="tag">Revenue Impact</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <h3>Azure Front Door Incident Leadership</h3>
+        <p>Led the response to Azure Front Door changes impacting iOS and Mac CP traffic. Directed testing of core enrollment/checkin flows, baselined network telemetry, and coordinated post-change monitoring to prevent customer impact during rollout.</p>
+        <div class="tags" style="margin-bottom:1rem">
+          <span class="tag">Incident Leadership</span>
+          <span class="tag">Azure</span>
+          <span class="tag">Reliability</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <h3>Reset Accounts Feature &mdash; macOS CP</h3>
+        <p>Designed and shipped a new Reset Accounts feature on macOS Company Portal enabling users to securely reset authentication and registration state in a guided flow. Reduced authentication-related ICMs and improved self-service recovery.</p>
+        <div class="tags" style="margin-bottom:1rem">
+          <span class="tag">macOS</span>
+          <span class="tag">Auth</span>
+          <span class="tag">Feature</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <h2>Projects &amp; Awards</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <h3>Continuous Strategy Stock Trader</h3>
+        <p>Continuous state-space reinforcement learner that simulates trading for small and large cap stocks using historical data and technical indicators.</p>
+        <div class="tags" style="margin-bottom:1rem">
+          <span class="tag">Reinforcement Learning</span>
+          <span class="tag">Python</span>
+        </div>
+      </div>
+      <div class="project-card">
+        <h3>Predictive Surgical Readmissions</h3>
+        <p>Built a patient readmission prediction tool using fuzzy sets, C-Means clustering, and KNNs to reduce surgical readmission rates.</p>
+        <div class="tags" style="margin-bottom:1rem">
+          <span class="tag">ML</span>
+          <span class="tag">Healthcare</span>
+        </div>
+      </div>
+      <div class="project-card">
+        <h3>GM Application Vitals App</h3>
+        <p>Android app leveraging IBM Watson's Discovery API to analyze business application health and surface actionable insights.</p>
+        <div class="tags" style="margin-bottom:1rem">
+          <span class="tag">Android</span>
+          <span class="tag">IBM Watson</span>
+        </div>
+      </div>
+      <div class="project-card">
+        <h3>CLI Automation Agents</h3>
+        <p>Built CLI-based agents to automate developer workflows across the Intune org &mdash; tenant provisioning, release tracking, and process orchestration.</p>
+        <div class="tags" style="margin-bottom:1rem">
+          <span class="tag">CLI</span>
+          <span class="tag">Automation</span>
+          <span class="tag">AI</span>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:2rem">
+      <h3 style="font-size:1.05rem; margin-bottom:.75rem;">Awards &amp; Recognition</h3>
+      <ul style="color: var(--text-muted); font-size:.95rem; padding-left:1.2rem;">
+        <li>GM Company Hackathon &mdash; 1st Place (2018), 2nd Place (2017)</li>
+        <li>InVenture Prize Semi-finalist (2015)</li>
+        <li>Dean's List, Comcast Scholar, NPGA Scholar, Graduation with Honors</li>
+        <li>Online Tutor &mdash; Teaching CS, Deep Learning, ML/AI, and Math (2020&ndash;present)</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="contact-content">
+      <p>I'm interested in technical leadership roles at the intersection of AI, infrastructure, and security. Let's talk.</p>
+      <a href="mailto:kbhagat6@gatech.edu" class="btn btn-primary">Say Hello</a>
+      <div class="social-links">
+        <a href="https://github.com/kbhagat6">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2026 Krishan Bhagat. Georgia Tech &middot; M.S. CS &middot; 12+ Years in Software Engineering.
+  </footer>
+
+</body>
+</html>
