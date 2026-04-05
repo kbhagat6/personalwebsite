@@ -202,6 +202,9 @@
     .timeline-item {
       position: relative;
       margin-bottom: 2.5rem;
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
     }
     .timeline-item::before {
       content: "";
@@ -214,6 +217,18 @@
       border-radius: 50%;
       transform: translateX(-4px);
     }
+    .timeline-logo {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      padding: 4px;
+      background: #fff;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .timeline-content { flex: 1; }
     .timeline-item h3 { font-size: 1.1rem; }
     .timeline-item .company {
       color: var(--accent);
@@ -343,8 +358,8 @@
     <h2>About Me</h2>
     <div class="about-content">
       <div>
-        <p>I'm a software engineer and technical leader with deep experience shipping high-impact systems at scale. At Microsoft, I own cross-platform device management across iOS, macOS, and Linux &mdash; including a Rust-based Linux client &mdash; driving security, automation, and AI adoption across teams. I've resolved critical incidents affecting tens of thousands of devices, built automation that became the org-wide standard, and led Day 0 platform readiness for major OS releases.</p>
-        <p>As Principal Founding Engineer at Thundergraph, I built core AI infrastructure from scratch, drove SOC 2 compliance, led intern recruiting, and delivered systems that earned direct recognition from leadership for outsized impact.</p>
+        <p>I'm a software engineer and technical leader with deep experience shipping high-impact systems at scale. At Microsoft, I own cross-platform device management across iOS, macOS, and Linux &mdash; including a Rust-based Linux client &mdash; driving security, automation, and AI adoption across teams. I've resolved critical incidents affecting tens of thousands of devices, built automation that became the org-wide standard, and led launch-day validation ensuring our apps are fully functional on the latest OS releases before they ship to customers.</p>
+        <p>As Principal Founding Engineer at Thundergraph, I contributed to building the citations and traceability system and core backend, stood up AWS ECS infrastructure, migrated RBAC from OngDB to Neo4j, replaced Auth0 with Keycloak, drove SOC 2 compliance, and led intern recruiting.</p>
         <p>I hold an M.S. in Computer Science (Machine Learning &amp; AI) and a B.S. in Computer Engineering (Distributed Systems &amp; Robotics) from Georgia Tech. I've spent my career at the intersection of AI, systems engineering, and security &mdash; and I'm looking for the next opportunity to lead at that intersection.</p>
       </div>
       <ul class="info-list">
@@ -442,38 +457,53 @@
     <div class="timeline">
 
       <div class="timeline-item">
-        <h3>Principal Founding Engineer</h3>
-        <span class="company">Thundergraph (AI Startup)</span>
-        <p class="date">Nov 2024 &mdash; Jan 2026 &middot; Part-time</p>
-        <p>Built core AI infrastructure from the ground up as the founding engineer for a startup revolutionizing Model-Based Systems Engineering (MBSE) with AI. Designed and implemented the citations and traceability system, backend infrastructure, and drove SOC 2 compliance. Conducted intern interviews and recruiting to build out the engineering team. Participated in strategy meetings shaping product direction. Recognized by leadership for outsized contributions to product quality and engineering velocity.</p>
+        <img src="assets/thundergraph.png" alt="Thundergraph" class="timeline-logo">
+        <div class="timeline-content">
+          <h3>Principal Founding Engineer</h3>
+          <span class="company"><a href="https://thundergraph.ai" style="color:var(--accent);text-decoration:none">Thundergraph</a> (AI Startup)</span>
+          <p class="date">Nov 2024 &mdash; Jan 2026 &middot; Part-time</p>
+          <p>Contributed to building the citations and traceability system and core backend for an AI-powered MBSE platform. Stood up AWS ECS container infrastructure for hosting. Migrated RBAC from OngDB to Neo4j and replaced Auth0 with Keycloak for authentication. Drove SOC 2 compliance, participated in strategy meetings shaping product direction, and conducted intern interviews to build out the engineering team.</p>
+        </div>
       </div>
 
       <div class="timeline-item">
-        <h3>Software Engineer</h3>
-        <span class="company">Microsoft &mdash; Intune / Endpoint Management</span>
-        <p class="date">Apr 2021 &mdash; Present</p>
-        <p>Own cross-platform device management for iOS, macOS, and Linux Company Portal (Rust). Drive security, automation, and AI adoption across the Intune org. Resolved critical incidents impacting tens of thousands of devices. Built tenant automation that became the org-wide baseline. Led Day 0 validation for macOS 26 and iOS 26. Architect Rust-based HTTP client with custom SSL/TLS, OCSP stapling, and TPM integration. Recognized for cross-org leadership and the "One Microsoft" mindset.</p>
+        <img src="assets/microsoft.png" alt="Microsoft" class="timeline-logo">
+        <div class="timeline-content">
+          <h3>Software Engineer</h3>
+          <span class="company">Microsoft &mdash; Intune / Endpoint Management</span>
+          <p class="date">Apr 2021 &mdash; Present</p>
+          <p>Own cross-platform device management for iOS, macOS, and Linux Company Portal (Rust). Drive security, automation, and AI adoption across the Intune org. Resolved critical incidents impacting tens of thousands of devices. Built tenant automation that became the org-wide baseline. Led launch-day validation for macOS 26 and iOS 26. Architected Rust-based HTTP client with custom SSL/TLS, OCSP stapling, and TPM integration. Recognized for cross-org leadership and the "One Microsoft" mindset.</p>
+        </div>
       </div>
 
       <div class="timeline-item">
-        <h3>Software Engineer, R&amp;D</h3>
-        <span class="company">NextGen Healthcare, Inc. &mdash; San Diego</span>
-        <p class="date">Oct 2019 &mdash; Apr 2021</p>
-        <p>Developed inbound/outbound message processors and ML-based customer attrition prediction using time series forecasting. Built ETL pipelines in Redshift, Jenkins deployment pipelines, redesigned the Patient Portal, and created a VR conversational agent using AWS Sumerian/Lex.</p>
+        <img src="assets/nextgen.png" alt="NextGen Healthcare" class="timeline-logo">
+        <div class="timeline-content">
+          <h3>Software Engineer, R&amp;D</h3>
+          <span class="company">NextGen Healthcare, Inc. &mdash; San Diego</span>
+          <p class="date">Oct 2019 &mdash; Apr 2021</p>
+          <p>Developed inbound/outbound message processors and ML-based customer attrition prediction using time series forecasting. Built ETL pipelines in Redshift, Jenkins deployment pipelines, redesigned the Patient Portal, and created a VR conversational agent using AWS Sumerian/Lex.</p>
+        </div>
       </div>
 
       <div class="timeline-item">
-        <h3>Software Engineer, Global Sites</h3>
-        <span class="company">General Motors Corp. &mdash; Atlanta</span>
-        <p class="date">Jan 2016 &mdash; Oct 2019</p>
-        <p>Built a deep learning model (MLP + LSTM) analyzing social media sentiment that increased marketing campaign revenue and EBIT by 30%. Developed predictive IT dashboards with Microsoft Cognitive Services. Integrated Adobe Analytics across global GM sites. Built Spring Boot content archival systems and employee portals using Workday/SOAP APIs.</p>
+        <img src="assets/gm.png" alt="General Motors" class="timeline-logo">
+        <div class="timeline-content">
+          <h3>Software Engineer, Global Sites</h3>
+          <span class="company">General Motors Corp. &mdash; Atlanta</span>
+          <p class="date">Jan 2016 &mdash; Oct 2019</p>
+          <p>Built a deep learning model (MLP + LSTM) analyzing social media sentiment that increased marketing campaign revenue and EBIT by 30%. Developed predictive IT dashboards with Microsoft Cognitive Services. Integrated Adobe Analytics across global GM sites. Built Spring Boot content archival systems and employee portals using Workday/SOAP APIs.</p>
+        </div>
       </div>
 
       <div class="timeline-item">
-        <h3>Software Engineer Co-op</h3>
-        <span class="company">GTRI &mdash; Intelligence &amp; Robotics Division</span>
-        <p class="date">Jan 2014 &mdash; Aug 2015</p>
-        <p>Developed object recognition APIs for deformable modeling research: 3D pose estimation from depth maps, multi-scale HOG feature extraction, SVM, and KNNs. Built software for a vision-based humanoid robot using line template matching and point clouds for 3D visual servoing.</p>
+        <img src="assets/gatech.png" alt="Georgia Tech" class="timeline-logo">
+        <div class="timeline-content">
+          <h3>Software Engineer Co-op</h3>
+          <span class="company">GTRI &mdash; Intelligence &amp; Robotics Division</span>
+          <p class="date">Jan 2014 &mdash; Aug 2015</p>
+          <p>Developed object recognition APIs for deformable modeling research: 3D pose estimation from depth maps, multi-scale HOG feature extraction, SVM, and KNNs. Built software for a vision-based humanoid robot using line template matching and point clouds for 3D visual servoing.</p>
+        </div>
       </div>
 
     </div>
@@ -525,12 +555,14 @@
       </div>
 
       <div class="project-card">
-        <h3>Thundergraph &mdash; AI Infrastructure &amp; SOC 2</h3>
-        <p>As founding engineer, built the citations and traceability system and core backend infrastructure for an AI-powered MBSE platform. Drove SOC 2 compliance from scratch, led intern recruiting, and participated in strategy meetings shaping product direction.</p>
+        <h3>Thundergraph &mdash; AI Backend &amp; Infrastructure</h3>
+        <p>Contributed to building the citations/traceability system and core backend for an AI-powered MBSE platform. Stood up AWS ECS infrastructure, migrated RBAC from OngDB to Neo4j, replaced Auth0 with Keycloak, and drove SOC 2 compliance.</p>
         <div class="tags" style="margin-bottom:1rem">
           <span class="tag">AI</span>
+          <span class="tag">AWS ECS</span>
+          <span class="tag">Neo4j</span>
+          <span class="tag">Keycloak</span>
           <span class="tag">SOC 2</span>
-          <span class="tag">Founding Engineer</span>
         </div>
       </div>
 
