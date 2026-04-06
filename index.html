@@ -337,20 +337,26 @@
         <li><a href="#experience">Experience</a></li>
         <li><a href="#highlights">Impact</a></li>
         <li><a href="#projects">Projects</a></li>
-        <li><a href="#beyond">Life</a></li>
+        <li><a href="#beyond">Hobbies</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
   </nav>
 
   <!-- Hero -->
-  <section class="hero">
-    <p class="greeting">Hi, I'm</p>
-    <h1>Krishan Bhagat.</h1>
-    <p>Engineering professional with 12+ years building robust production systems across AI/ML, full-stack development, security, and cross-platform infrastructure.</p>
-    <div class="cta-group">
-      <a href="#highlights" class="btn btn-primary">See My Impact</a>
-      <a href="#contact" class="btn btn-outline">Get in Touch</a>
+  <section class="hero" style="flex-direction:row;align-items:center;gap:3rem;flex-wrap:wrap">
+    <div style="flex:1;min-width:280px">
+      <p class="greeting">Hi, I'm</p>
+      <h1>Krishan Bhagat.</h1>
+      <p>Engineering professional with 10+ years building robust production systems across AI/ML, full-stack development, security, and cross-platform infrastructure.</p>
+      <div class="cta-group">
+        <a href="#highlights" class="btn btn-primary">See My Impact</a>
+        <a href="#contact" class="btn btn-outline">Get in Touch</a>
+      </div>
+    </div>
+    <div style="display:flex;gap:.75rem;flex-shrink:0">
+      <img src="assets/travel1.jpg" alt="Krishan in Tokyo" style="width:180px;height:240px;object-fit:cover;border-radius:var(--radius);border:1px solid var(--border)">
+      <img src="assets/travel2.jpg" alt="Krishan in Rome" style="width:180px;height:240px;object-fit:cover;border-radius:var(--radius);border:1px solid var(--border)">
     </div>
   </section>
 
@@ -361,7 +367,7 @@
       <div>
         <p>I'm a software engineer and technical leader with deep experience shipping high-impact systems at scale. At Microsoft, I own cross-platform device management across iOS, macOS, and Linux including a Rust-based Linux client, driving security, automation, and AI adoption across teams. I've resolved critical incidents affecting tens of thousands of devices, built automation that became the org-wide standard, and led launch-day validation ensuring our apps are fully functional on the latest OS releases before they ship to customers.</p>
         <p>As Principal Founding Engineer at Thundergraph, I contributed to building the citations and traceability system and core backend, stood up AWS ECS infrastructure, migrated RBAC from MongoDB to Neo4j, led the authentication migration from Auth0 to Keycloak for full self-hosted identity control, drove SOC 2 compliance, and intern recruiting.</p>
-        <p>I hold an M.S. in Computer Science (Machine Learning &amp; AI) and a B.S. in Computer Engineering (Distributed Systems &amp; Robotics) from Georgia Tech. With deep systems experience comes an intuition for code quality, including knowing when AI-generated code looks right but isn't. I've spent my career at the intersection of AI, systems engineering, and security and I'm looking for the next opportunity to lead at that intersection.</p>
+        <p>I hold an M.S. in Computer Science (Machine Learning &amp; AI) and a B.S. in Computer Engineering (Distributed Systems &amp; Robotics) from Georgia Tech. I care deeply about shipping clean, well-architected code that holds up in production and at scale. I've spent my career at the intersection of AI, systems engineering, and security and I'm looking for the next opportunity to lead at that intersection.</p>
       </div>
       <ul class="info-list">
         <li><span class="label">Location</span> <span>Atlanta, GA (Remote)</span></li>
@@ -675,14 +681,10 @@
 
   <!-- Beyond the Code -->
   <section id="beyond" style="padding-bottom:3rem">
-    <h2>Beyond the Code</h2>
+    <h2>Hobbies</h2>
     <p style="color:var(--text-muted);max-width:640px;font-size:1.05rem;line-height:1.7">
       When I'm not building software, you'll find me on the pitch playing soccer or watching the Premier League, Champions League, FA Cup, and Carabao Cup, a habit I picked up growing up in England. I also enjoy the NBA playoffs, tennis, darts, cooking, working out, and the occasional card game. I love travelling, whether it's heading back to the UK to visit family or exploring somewhere new. Always up for a good conversation or a match day.
     </p>
-    <div style="display:flex;gap:1rem;margin-top:2rem;flex-wrap:wrap">
-      <img src="assets/travel1.jpg" alt="Travel" style="width:280px;height:210px;object-fit:cover;border-radius:var(--radius);border:1px solid var(--border)">
-      <img src="assets/travel2.jpg" alt="Travel" style="width:280px;height:210px;object-fit:cover;border-radius:var(--radius);border:1px solid var(--border)">
-    </div>
   </section>
 
   <!-- Contact -->
