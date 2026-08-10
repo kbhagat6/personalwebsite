@@ -480,7 +480,7 @@
           <h3>Principal Founding Engineer</h3>
           <span class="company"><a href="https://thundergraph.ai" style="color:var(--accent);text-decoration:none">Thundergraph</a> (AI Startup) &mdash; Remote</span>
           <p class="date">Nov 2024 &mdash; Jan 2026</p>
-          <p>Contributed to building the citations and traceability system and core backend for an AI-powered MBSE platform. Stood up AWS ECS container infrastructure for hosting. Migrated RBAC from MongoDB to Neo4j and led the authentication migration from Auth0 to Keycloak, giving the platform full self-hosted identity and access control. Drove SOC 2 compliance, participated in strategy meetings shaping product direction, and conducted intern interviews to build out the engineering team. <a href="https://thundergraph.ai" style="color:var(--accent);font-weight:500;text-decoration:none">thundergraph.ai</a></p>
+          <p>Built the citations and traceability system and core backend for an AI-powered MBSE platform. Stood up AWS ECS container infrastructure for production hosting. Migrated background task workers from Celery to asynchronous Redis queues for improved task processing efficiency. Migrated RBAC from MongoDB to Neo4j and led authentication migration from Auth0 to Keycloak for full self-hosted identity control. Drove SOC 2 compliance efforts, participated in strategy meetings shaping product direction, and conducted intern recruiting and interviews to build out the engineering team. <a href="https://thundergraph.ai" style="color:var(--accent);font-weight:500;text-decoration:none">thundergraph.ai</a></p>
         </div>
       </div>
 
@@ -500,7 +500,7 @@
           <h3>Software Engineer, R&amp;D</h3>
           <span class="company">NextGen Healthcare, Inc. &mdash; San Diego</span>
           <p class="date">Oct 2019 &mdash; Apr 2021</p>
-          <p>Developed inbound/outbound message processors and ML-based customer attrition prediction using time series forecasting. Built ETL pipelines in Redshift, Jenkins deployment pipelines, redesigned the Patient Portal, and created a VR conversational agent using AWS Sumerian/Lex.</p>
+          <p>Worked on a large-scale EHR/EMS application. Developed inbound/outbound message processors and S3 client service for improving reimbursement and monitoring RCM profitability. Built ML-based customer attrition prediction using time series forecasting based on encounters, claims, and login rates. Developed Jenkins deployment pipelines for standalones/code extractors, loading into Oracle, priming Redis cache, and reindexing search modules. Wrote ETL replication scripts in Redshift for star schema reporting. Created bidirectional SOAP services for states' immunization registries. Rebuilt EHR auditing feature for accurate reconstruction of patient chart changes. Redesigned Patient Portal using Vonage API and created a VR conversational agent using AWS Sumerian/Lex.</p>
         </div>
       </div>
 
@@ -510,7 +510,7 @@
           <h3>Software Engineer, Global Sites</h3>
           <span class="company">General Motors Corp. &mdash; Atlanta</span>
           <p class="date">Jan 2016 &mdash; Oct 2019</p>
-          <p>Built a deep learning model (MLP + LSTM) analyzing social media sentiment that increased marketing campaign revenue and EBIT by 30%. Developed predictive IT dashboards with Microsoft Cognitive Services. Integrated Adobe Analytics across global GM sites. Built Spring Boot content archival systems and employee portals using Workday/SOAP APIs.</p>
+          <p>Built a deep learning model (MLP + LSTM) analyzing social media sentiment that increased marketing campaign revenue and EBIT by 30%. Developed predictive IT dashboards using Python, Microsoft Cognitive Services, and PowerBI. Implemented a Spring Boot application for archival/ingestion of global GM News and site content. Built employee portals using Workday API with SOAP and integrated SSO authentication. Integrated Adobe Analytics for customized click tracking, activity monitoring, and impression analysis across global GM sites. Developed dynamic UI components using Kollective/BrightCove APIs and modified news aggregators to personalize article listings.</p>
         </div>
       </div>
 
@@ -520,7 +520,7 @@
           <h3>Software Engineer Co-op</h3>
           <span class="company">GTRI &mdash; Intelligence &amp; Robotics Division</span>
           <p class="date">Jan 2014 &mdash; Aug 2015</p>
-          <p>Developed object recognition APIs for deformable modeling research: 3D pose estimation from depth maps, multi-scale HOG feature extraction, SVM, and KNNs. Built software for a vision-based humanoid robot using line template matching and point clouds for 3D visual servoing.</p>
+          <p>Developed object recognition APIs for deformable modeling research: 3D pose estimation from depth maps, multi-scale HOG feature extraction, SVM, and KNNs. Built the visual servoing system for a Baxter Robot using ROS, OpenCV, and Xbox Kinect v2 for 3D depth sensing, researching its viability in industrial settings. Developed Baxter calibration using TF publishers and listeners to convert Kinect point clouds to robot coordinates, with C++ bridging PCL and TF libraries.</p>
         </div>
       </div>
 
@@ -615,13 +615,16 @@
       </div>
 
       <div class="project-card">
-        <h3>Humanoid Robot Vision System</h3>
-        <p>Built the computer vision software for a humanoid collaborative robot at GTRI, enabling autonomous object recognition and manipulation in industrial environments. Implemented 3D point cloud processing with depth sensors, template matching for pose estimation, and visual servoing for real-time robotic control.</p>
+        <h3>Baxter Robot Visual Servoing</h3>
+        <p>Built the computer vision and control system for a Baxter Robot at GTRI, researching its viability for industrial automation. Used ROS and Xbox Kinect v2 for 3D depth sensing. Developed Baxter calibration with TF publishers/listeners to convert Kinect point clouds to robot coordinates. Wrote C++ to bridge PCL and TF libraries, with launch files for streamlined deployment. Got the system fully operational for visual servoing in an industrial research setting.</p>
         <div class="tags" style="margin-bottom:1rem">
-          <span class="tag">Computer Vision</span>
-          <span class="tag">3D Point Clouds</span>
-          <span class="tag">Robotics</span>
           <span class="tag">ROS</span>
+          <span class="tag">OpenCV</span>
+          <span class="tag">Kinect v2</span>
+          <span class="tag">C++</span>
+          <span class="tag">PCL</span>
+          <span class="tag">Visual Servoing</span>
+          <span class="tag">Robotics</span>
         </div>
       </div>
 
