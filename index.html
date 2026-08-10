@@ -477,6 +477,16 @@
     <div class="timeline">
 
       <div class="timeline-item">
+        <div style="width:48px;height:48px;border-radius:8px;border:1px solid var(--border);background:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;color:#fff;font-weight:700;font-size:1rem">E</div>
+        <div class="timeline-content">
+          <h3>Software Engineer</h3>
+          <span class="company">Engen (backed by Montauk Capital) &mdash; Remote</span>
+          <p class="date">May 2026 &mdash; Jul 2026</p>
+          <p>Worked on Engen2, an AI-powered CAD generation platform (NL prompt &rarr; LLM-generated CadQuery code &rarr; 3D render), across the full stack&mdash;multi-LLM orchestration (Claude, OpenAI, Gemini, Fireworks), candidate generation, 3D viewer/UX, and verification tooling. Developed a fine-tuning pipeline for CadQuery code generation using Hugging Face datasets and RunPod: built data adapters for open CAD datasets (OmniCAD, CADEvolve), designed synthetic data generators for tessellation-verified training examples (holes, chamfers, fillets, brackets, shafts), and ran multiple LoRA fine-tuning iterations on Qwen2.5-Coder-7B, benchmarked against mechanical engineering test cases and deployed via RunPod serverless inference.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
         <img src="assets/thundergraph.png" alt="Thundergraph" class="timeline-logo">
         <div class="timeline-content">
           <h3>Principal Founding Engineer</h3>
@@ -553,6 +563,20 @@
       </div>
 
       <div class="project-card">
+        <h3>Baxter Robot Visual Servoing</h3>
+        <p>Built the computer vision and control system for a Baxter Robot at GTRI, researching its viability for industrial automation. Used ROS and Xbox Kinect v2 for 3D depth sensing. Developed Baxter calibration with TF publishers/listeners to convert Kinect point clouds to robot coordinates. Wrote C++ to bridge PCL and TF libraries, with launch files for streamlined deployment. Got the system fully operational for visual servoing in an industrial research setting.</p>
+        <div class="tags" style="margin-bottom:1rem">
+          <span class="tag">ROS</span>
+          <span class="tag">OpenCV</span>
+          <span class="tag">Kinect v2</span>
+          <span class="tag">C++</span>
+          <span class="tag">PCL</span>
+          <span class="tag">Visual Servoing</span>
+          <span class="tag">Robotics</span>
+        </div>
+      </div>
+
+      <div class="project-card">
         <h3>Rust HTTP Client &amp; Security Hardening</h3>
         <p>Architected the Rust HTTP client for Linux device management software with custom SSL/TLS certificate validation, OCSP stapling, and hostname verification using industry-standard OpenSSL. Eliminated compliance gaps and dependency vulnerabilities.</p>
         <div class="tags" style="margin-bottom:1rem">
@@ -601,20 +625,6 @@
           <span class="tag">Incident Leadership</span>
           <span class="tag">Azure</span>
           <span class="tag">Reliability</span>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <h3>Baxter Robot Visual Servoing</h3>
-        <p>Built the computer vision and control system for a Baxter Robot at GTRI, researching its viability for industrial automation. Used ROS and Xbox Kinect v2 for 3D depth sensing. Developed Baxter calibration with TF publishers/listeners to convert Kinect point clouds to robot coordinates. Wrote C++ to bridge PCL and TF libraries, with launch files for streamlined deployment. Got the system fully operational for visual servoing in an industrial research setting.</p>
-        <div class="tags" style="margin-bottom:1rem">
-          <span class="tag">ROS</span>
-          <span class="tag">OpenCV</span>
-          <span class="tag">Kinect v2</span>
-          <span class="tag">C++</span>
-          <span class="tag">PCL</span>
-          <span class="tag">Visual Servoing</span>
-          <span class="tag">Robotics</span>
         </div>
       </div>
 
