@@ -3,7 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Krishan — Portfolio</title>
+  <title>Krishan Bhagat | Software Engineer</title>
+  <meta name="description" content="Krishan Bhagat is a software engineer building production systems across AI, security, and cross-platform infrastructure.">
+  <meta name="theme-color" content="#0b0d10">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #fafafa;
@@ -324,13 +329,280 @@
       nav a { font-size: .8rem; }
     }
   </style>
+  <style>
+    :root {
+      --bg: #0b0d10;
+      --surface: #12161b;
+      --surface-strong: #181d23;
+      --text: #f4f7f8;
+      --text-muted: #9aa5ae;
+      --accent: #37d6c0;
+      --accent-strong: #16bba6;
+      --accent-light: rgba(55, 214, 192, .1);
+      --warm: #ffbc66;
+      --border: rgba(255, 255, 255, .1);
+      --radius: 8px;
+    }
+
+    * { scrollbar-width: thin; scrollbar-color: #343b43 var(--bg); }
+
+    body {
+      font-family: "Manrope", sans-serif;
+      background:
+        linear-gradient(rgba(255, 255, 255, .025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .025) 1px, transparent 1px),
+        var(--bg);
+      background-size: 48px 48px;
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0 0 auto;
+      height: 2px;
+      width: var(--scroll-progress, 0%);
+      background: var(--accent);
+      z-index: 200;
+    }
+
+    ::selection { color: var(--bg); background: var(--accent); }
+
+    nav {
+      background: rgba(11, 13, 16, .82);
+      border-color: var(--border);
+      padding: 0 2.5rem;
+    }
+
+    nav .inner { max-width: 1180px; height: 68px; }
+
+    nav .logo {
+      color: var(--text);
+      font-family: "DM Mono", monospace;
+      font-size: 1rem;
+      letter-spacing: 0;
+    }
+
+    nav .logo span { color: var(--accent); }
+    nav ul { gap: 1.75rem; }
+    nav a { color: var(--text-muted); font-size: .78rem; font-weight: 600; }
+    nav a:hover, nav a:focus-visible { color: var(--accent); }
+
+    section {
+      max-width: 1180px;
+      padding: 7rem 2.5rem;
+    }
+
+    section:not(.hero) { border-top: 1px solid var(--border); }
+
+    h2 {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 3rem;
+      font-size: clamp(1.7rem, 3vw, 2.35rem);
+      letter-spacing: 0;
+    }
+
+    h2::before {
+      content: attr(data-index);
+      color: var(--accent);
+      font: 500 .75rem "DM Mono", monospace;
+    }
+
+    h2::after {
+      position: static;
+      width: min(240px, 24vw);
+      height: 1px;
+      background: var(--border);
+      border-radius: 0;
+    }
+
+    .hero {
+      min-height: 94vh;
+      max-width: 1180px;
+      padding: 8rem 2.5rem 5rem;
+      display: grid !important;
+      grid-template-columns: minmax(0, 1.25fr) minmax(280px, .75fr);
+      align-items: center !important;
+      gap: clamp(3rem, 7vw, 7rem) !important;
+    }
+
+    .hero > div:first-child { min-width: 0 !important; }
+
+    .hero .greeting {
+      color: var(--accent);
+      font: 500 .83rem "DM Mono", monospace;
+      letter-spacing: 0;
+      margin-bottom: 1.1rem;
+    }
+
+    .hero h1 {
+      max-width: 760px;
+      margin-bottom: 1.5rem;
+      color: var(--text);
+      font-size: clamp(3rem, 7vw, 6.2rem);
+      font-weight: 800;
+      letter-spacing: -3px;
+      line-height: .98;
+    }
+
+    .hero h1 span { color: var(--accent); }
+
+    .hero p:not(.greeting) {
+      max-width: 650px;
+      margin-bottom: 2.2rem;
+      color: var(--text-muted);
+      font-size: clamp(1rem, 1.7vw, 1.2rem);
+    }
+
+    .hero .cta-group { gap: .8rem; }
+
+    .btn {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: .72rem 1.2rem;
+      border-radius: 6px;
+      font-family: "DM Mono", monospace;
+      font-size: .78rem;
+      transition: transform .2s, background .2s, border-color .2s, color .2s;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--accent); color: #06110f; }
+    .btn-primary:hover { background: #64e4d2; }
+    .btn-outline { border-color: var(--border); color: var(--text); }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+    .hero-portraits {
+      position: relative;
+      display: grid !important;
+      grid-template-columns: 1fr 1fr;
+      gap: .8rem !important;
+      min-width: 0;
+    }
+
+    .hero-portraits::before {
+      content: "ATL  /  SEA";
+      position: absolute;
+      top: -1.8rem;
+      right: 0;
+      color: var(--text-muted);
+      font: .65rem "DM Mono", monospace;
+      letter-spacing: .12em;
+    }
+
+    .hero-portraits img {
+      width: 100% !important;
+      height: clamp(300px, 38vw, 460px) !important;
+      border: 1px solid var(--border) !important;
+      border-radius: var(--radius) !important;
+      filter: saturate(.82) contrast(1.05);
+    }
+
+    .hero-portraits img:first-child { transform: translateY(1.4rem); }
+
+    .about-content { grid-template-columns: 1.15fr .85fr; gap: clamp(2rem, 7vw, 6rem); }
+    .about-content p { color: var(--text-muted); }
+
+    .info-list {
+      padding: 1.25rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    .info-list li { border-color: var(--border); font-size: .84rem; }
+    .info-list li:last-child { border-bottom: 0; }
+    .info-list .label { min-width: 88px; color: var(--accent); font-family: "DM Mono", monospace; font-weight: 500; }
+
+    .skills-grid { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .skill-card, .project-card {
+      background: rgba(18, 22, 27, .86);
+      border-color: var(--border);
+      border-radius: var(--radius);
+      transition: border-color .25s, transform .25s, background .25s;
+    }
+
+    .skill-card:hover, .project-card:hover {
+      border-color: rgba(55, 214, 192, .55);
+      background: var(--surface-strong);
+      transform: translateY(-4px);
+    }
+
+    .skill-card h3, .project-card h3 { color: var(--text); }
+    .tag { background: var(--accent-light); color: #70e6d6; border: 1px solid rgba(55, 214, 192, .12); border-radius: 4px; font-family: "DM Mono", monospace; font-size: .68rem; }
+
+    .timeline { padding-left: 2.6rem; }
+    .timeline::before { background: var(--border); }
+    .timeline-item { gap: 1.4rem; margin-bottom: 3.5rem; }
+    .timeline-item::before { left: -2.6rem; width: 8px; height: 8px; box-shadow: 0 0 0 5px var(--bg); }
+    .timeline-logo { border-color: var(--border); background: #f8fafb; border-radius: 6px; }
+    .timeline-item h3 { color: var(--text); font-size: 1.15rem; }
+    .timeline-item .company { color: var(--accent); }
+    .timeline-item .date { margin: .2rem 0 .75rem; font-family: "DM Mono", monospace; font-size: .72rem; }
+    .timeline-item p { max-width: 900px; color: var(--text-muted); font-size: .91rem; }
+
+    .projects-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .project-card { min-height: 240px; padding: 1.7rem; }
+    .project-card p { color: var(--text-muted); }
+
+    #highlights .project-card:first-child,
+    #highlights .project-card:nth-child(4) { grid-column: span 2; min-height: 210px; }
+
+    #beyond p { color: var(--text-muted) !important; }
+    .contact-content { max-width: 680px; }
+    .contact-content p { font-size: 1.12rem; }
+    .social-links a { border-color: var(--border); color: var(--text-muted); border-radius: 6px; }
+    footer { border-color: var(--border); color: var(--text-muted); font-family: "DM Mono", monospace; font-size: .68rem; }
+
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+
+    @media (max-width: 900px) {
+      nav ul li:nth-child(2), nav ul li:nth-child(4), nav ul li:nth-child(6) { display: none; }
+      .hero { grid-template-columns: 1fr; padding-top: 9rem; }
+      .hero-portraits { width: min(100%, 520px); }
+      .hero-portraits img { height: 420px !important; }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 620px) {
+      nav { padding: 0 1.2rem; }
+      nav ul { gap: 1rem; }
+      nav ul li:nth-child(3) { display: none; }
+      section { padding: 5rem 1.25rem; }
+      .hero { min-height: auto; padding: 8.5rem 1.25rem 5rem; gap: 3rem !important; }
+      .hero h1 { font-size: clamp(2.8rem, 15vw, 4.3rem); letter-spacing: -2px; }
+      .hero-portraits img { height: 190px !important; }
+      .about-content, .skills-grid, .projects-grid { grid-template-columns: 1fr; }
+      #highlights .project-card:first-child, #highlights .project-card:nth-child(4) { grid-column: auto; }
+      .timeline { padding-left: 1.4rem; }
+      .timeline-item { display: block; }
+      .timeline-item::before { left: -1.4rem; }
+      .timeline-logo, .timeline-item > div[style*="width:48px"] { margin-bottom: 1rem; }
+      .project-card { min-height: 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
 </head>
 <body>
 
   <!-- Nav -->
   <nav>
     <div class="inner">
-      <a href="#" class="logo">KB.</a>
+      <a href="#" class="logo" aria-label="Krishan Bhagat, home">KB<span>.</span></a>
       <ul>
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
@@ -347,14 +619,14 @@
   <section class="hero" style="flex-direction:row;align-items:center;gap:3rem;flex-wrap:wrap">
     <div style="flex:1;min-width:280px">
       <p class="greeting">Hi, I'm</p>
-      <h1>Krishan Bhagat.</h1>
+      <h1>Krishan<br>Bhagat<span>.</span></h1>
       <p>Engineering professional with 10+ years building robust production systems across AI/ML, full-stack development, security, and cross-platform infrastructure.</p>
       <div class="cta-group">
         <a href="#highlights" class="btn btn-primary">See My Impact</a>
         <a href="#contact" class="btn btn-outline">Get in Touch</a>
       </div>
     </div>
-    <div style="display:flex;gap:.75rem;flex-shrink:0">
+    <div class="hero-portraits">
       <img src="assets/travel1.jpg" alt="Krishan in Tokyo" style="width:180px;height:240px;object-fit:cover;border-radius:var(--radius);border:1px solid var(--border)">
       <img src="assets/travel2.jpg" alt="Krishan in Rome" style="width:180px;height:240px;object-fit:cover;border-radius:var(--radius);border:1px solid var(--border)">
     </div>
@@ -362,7 +634,7 @@
 
   <!-- About -->
   <section id="about">
-    <h2>About Me</h2>
+    <h2 data-index="01">About Me</h2>
     <div class="about-content">
       <div>
         <p>I'm a software engineer and technical leader with deep experience shipping high-impact systems at scale. At Microsoft, I work on cross-platform device management across iOS, macOS, as well a Rust-based Linux client, driving security, automation, and AI adoption across teams. I've resolved critical incidents affecting tens of thousands of devices, built automation that became the org-wide standard, and led launch-day validation ensuring our apps are fully functional on the latest OS releases before they ship to customers.</p>
@@ -382,7 +654,7 @@
 
   <!-- Skills -->
   <section id="skills">
-    <h2>Skills &amp; Expertise</h2>
+    <h2 data-index="02">Skills &amp; Expertise</h2>
     <div class="skills-grid">
       <div class="skill-card">
         <h3>Languages</h3>
@@ -473,7 +745,7 @@
 
   <!-- Experience -->
   <section id="experience">
-    <h2>Experience</h2>
+    <h2 data-index="03">Experience</h2>
     <div class="timeline">
 
       <div class="timeline-item">
@@ -549,7 +821,7 @@
     </div>
   </section>
   <section id="highlights">
-    <h2>Impact Highlights</h2>
+    <h2 data-index="04">Impact Highlights</h2>
     <div class="projects-grid">
 
       <div class="project-card">
@@ -633,7 +905,7 @@
 
   <!-- Projects -->
   <section id="projects">
-    <h2>Projects &amp; Awards</h2>
+    <h2 data-index="05">Projects &amp; Awards</h2>
     <div class="projects-grid">
       <div class="project-card">
         <h3>Continuous Strategy Stock Trader</h3>
@@ -682,7 +954,7 @@
 
   <!-- Beyond the Code -->
   <section id="beyond" style="padding-bottom:3rem">
-    <h2>Hobbies</h2>
+    <h2 data-index="06">Beyond the Code</h2>
     <p style="color:var(--text-muted);max-width:640px;font-size:1.05rem;line-height:1.7">
       Outside of work, I'm a huge football fan. Growing up in England, I've been watching the Premier League, Champions League, FA Cup, and Carabao Cup for as long as I can remember. I also enjoy playing soccer, the NBA playoffs, tennis, darts, cooking, working out, and the occasional card game. I love travelling, whether it's heading back to the UK to visit family or exploring somewhere new. Always up for a good conversation or a match day.
     </p>
@@ -690,7 +962,7 @@
 
   <!-- Contact -->
   <section id="contact">
-    <h2>Contact</h2>
+    <h2 data-index="07">Contact</h2>
     <div class="contact-content">
       <p>I'm interested in technical leadership roles at the intersection of AI, infrastructure, and security. Let's talk.</p>
       <a href="mailto:kbhagat6@gatech.edu" class="btn btn-primary">Say Hello</a>
@@ -703,6 +975,31 @@
   <footer>
     &copy; 2026 Krishan Bhagat. Georgia Tech &middot; M.S. CS &middot; 10+ Years in Software Engineering.
   </footer>
+
+  <script>
+    const updateScrollProgress = () => {
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+      document.body.style.setProperty("--scroll-progress", `${progress}%`);
+    };
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll("section:not(.hero) > *").forEach((element) => {
+      element.classList.add("reveal");
+      revealObserver.observe(element);
+    });
+
+    window.addEventListener("scroll", updateScrollProgress, { passive: true });
+    updateScrollProgress();
+  </script>
 
 </body>
 </html>
