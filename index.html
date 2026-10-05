@@ -638,7 +638,7 @@
     <div class="about-content">
       <div>
         <p>I'm a software engineer and technical leader with deep experience shipping high-impact systems at scale. At Microsoft, I work on cross-platform device management across iOS, macOS, as well a Rust-based Linux client, driving security, automation, and AI adoption across teams. I've resolved critical incidents affecting tens of thousands of devices, built automation that became the org-wide standard, and led launch-day validation ensuring our apps are fully functional on the latest OS releases before they ship to customers.</p>
-        <p>As Principal Founding Engineer at Thundergraph, I contributed to building the citations and traceability system and core backend, stood up AWS ECS infrastructure, migrated RBAC from MongoDB to Neo4j, led the authentication migration from Auth0 to Keycloak for full self-hosted identity control, drove SOC 2 compliance, and intern recruiting.</p>
+        <p>Through the Thundergraph project, I contributed to building the citations and traceability system and core backend, stood up AWS ECS infrastructure, migrated RBAC from MongoDB to Neo4j, led the authentication migration from Auth0 to Keycloak for full self-hosted identity control, drove SOC 2 compliance, and supported intern recruiting.</p>
         <p>I hold an M.S. in Computer Science (Machine Learning, Computational Perception &amp; Robotics) and a B.S. in Computer Engineering (Distributed Systems &amp; Robotics) from Georgia Tech. I care deeply about shipping clean, well-architected code that holds up in production and at scale. I've spent my career at the intersection of AI, systems engineering, and security and I'm looking for the next opportunity to lead at that intersection.</p>
       </div>
       <ul class="info-list">
@@ -747,26 +747,6 @@
   <section id="experience">
     <h2 data-index="03">Experience</h2>
     <div class="timeline">
-
-      <div class="timeline-item">
-        <div style="width:48px;height:48px;border-radius:8px;border:1px solid var(--border);background:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;color:#fff;font-weight:700;font-size:1rem">E</div>
-        <div class="timeline-content">
-          <h3>AI Consultant/Engineer</h3>
-          <span class="company">Engen (backed by Montauk Capital) &mdash; Remote</span>
-          <p class="date">May 2026 &mdash; Jul 2026</p>
-          <p>Worked on Engen2, an AI-powered CAD generation platform (NL prompt &rarr; LLM-generated CadQuery code &rarr; 3D render), across the full stack: multi-LLM orchestration (Claude, OpenAI, Gemini, Fireworks), candidate generation, 3D viewer/UX, and verification tooling. Developed a fine-tuning pipeline for CadQuery code generation using Hugging Face datasets and RunPod: built data adapters for open CAD datasets (OmniCAD, CADEvolve), designed synthetic data generators for tessellation-verified training examples (holes, chamfers, fillets, brackets, shafts), and ran multiple LoRA fine-tuning iterations on Qwen2.5-Coder-7B, benchmarked against mechanical engineering test cases and deployed via RunPod serverless inference.</p>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <img src="assets/thundergraph.png" alt="Thundergraph" class="timeline-logo">
-        <div class="timeline-content">
-          <h3>Principal Founding Engineer</h3>
-          <span class="company"><a href="https://thundergraph.ai" style="color:var(--accent);text-decoration:none">Thundergraph</a> (AI Startup) &mdash; Remote</span>
-          <p class="date">Nov 2024 &mdash; Jan 2026</p>
-          <p>Built the citations and traceability system and core backend for an AI-powered MBSE platform. Stood up AWS ECS container infrastructure for production hosting. Migrated background task workers from Celery to asynchronous Redis queues for improved task processing efficiency. Migrated RBAC from MongoDB to Neo4j and led authentication migration from Auth0 to Keycloak for full self-hosted identity control. Drove SOC 2 compliance efforts, participated in strategy meetings shaping product direction, and conducted intern recruiting and interviews to build out the engineering team. <a href="https://thundergraph.ai" style="color:var(--accent);font-weight:500;text-decoration:none">thundergraph.ai</a></p>
-        </div>
-      </div>
 
       <div class="timeline-item">
         <img src="assets/microsoft.png" alt="Microsoft" class="timeline-logo">
@@ -907,6 +887,33 @@
   <section id="projects">
     <h2 data-index="05">Projects &amp; Awards</h2>
     <div class="projects-grid">
+      <div class="project-card">
+        <h3>Engen2 AI CAD Platform</h3>
+        <p>Contributed across the full stack of an AI-powered CAD generation platform that transforms natural-language prompts into LLM-generated CadQuery code and interactive 3D renders. Built multi-LLM orchestration, candidate generation, viewer UX, verification tooling, and a fine-tuning pipeline using open CAD datasets, synthetic tessellation-verified examples, LoRA, Qwen2.5-Coder-7B, and RunPod serverless inference.</p>
+        <div class="tags" style="margin-bottom:1rem">
+          <span class="tag">Generative AI</span>
+          <span class="tag">CadQuery</span>
+          <span class="tag">LoRA</span>
+          <span class="tag">Hugging Face</span>
+          <span class="tag">RunPod</span>
+          <span class="tag">3D</span>
+        </div>
+      </div>
+      <div class="project-card">
+        <h3>Thundergraph AI Platform</h3>
+        <p>Contributed to the citations and traceability system and core backend for an AI-powered MBSE platform. Built AWS ECS production infrastructure, migrated task processing to asynchronous Redis queues, moved RBAC from MongoDB to Neo4j, led the Auth0-to-Keycloak migration, and supported SOC 2 compliance and technical recruiting.</p>
+        <div class="tags" style="margin-bottom:1rem">
+          <span class="tag">AI</span>
+          <span class="tag">AWS ECS</span>
+          <span class="tag">Neo4j</span>
+          <span class="tag">Keycloak</span>
+          <span class="tag">Redis</span>
+          <span class="tag">SOC 2</span>
+        </div>
+        <div class="project-links">
+          <a href="https://thundergraph.ai" target="_blank" rel="noopener noreferrer">Visit Thundergraph</a>
+        </div>
+      </div>
       <div class="project-card">
         <h3>Continuous Strategy Stock Trader</h3>
         <p>Continuous state-space reinforcement learner that simulates trading for small and large cap stocks using historical data and technical indicators.</p>
