@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Krishan Bhagat | Software Engineer</title>
+  <meta name="description" content="Krishan Bhagat is a software engineer building production systems across AI, security, and cross-platform infrastructure.">
+  <meta name="theme-color" content="#0b0d10">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fafafa;
+      --surface: #ffffff;
+      --text: #1a1a1a;
+      --text-muted: #555;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --border: #e5e7eb;
+      --radius: 10px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ---- NAV ---- */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(250,250,250,.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+      padding: 0 2rem;
+    }
+    nav .inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 56px;
+    }
+    nav .logo {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text);
+      text-decoration: none;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    nav a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: .9rem;
+      transition: color .2s;
+    }
+    nav a:hover { color: var(--accent); }
+
+    /* ---- SECTIONS ---- */
+    section {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      margin-bottom: 2rem;
+      position: relative;
+      display: inline-block;
+    }
+    h2::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 40px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    /* ---- HERO ---- */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 56px;
+    }
+    .hero .greeting {
+      font-size: 1.1rem;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: .5rem;
+    }
+    .hero h1 {
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 540px;
+      margin-bottom: 2rem;
+    }
+    .hero .cta-group { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-block;
+      padding: .7rem 1.6rem;
+      border-radius: var(--radius);
+      font-size: .95rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background .2s, color .2s;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+    .btn-primary:hover { background: #1d4ed8; }
+    .btn-outline {
+      border: 1.5px solid var(--border);
+      color: var(--text);
+    }
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* ---- ABOUT ---- */
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .about-content p { color: var(--text-muted); margin-bottom: 1rem; }
+    .info-list { list-style: none; }
+    .info-list li {
+      display: flex;
+      gap: .5rem;
+      padding: .5rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: .95rem;
+    }
+    .info-list .label {
+      font-weight: 600;
+      min-width: 100px;
+    }
+
+    /* ---- SKILLS ---- */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+    .skill-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      transition: border-color .2s;
+    }
+    .skill-card:hover { border-color: var(--accent); }
+    .skill-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: .75rem;
+    }
+    .tags { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .tag {
+      background: var(--accent-light);
+      color: var(--accent);
+      padding: .25rem .7rem;
+      border-radius: 20px;
+      font-size: .8rem;
+      font-weight: 500;
+    }
+
+    /* ---- EXPERIENCE ---- */
+    .timeline { position: relative; padding-left: 2rem; }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: var(--border);
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2.5rem;
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+    }
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -2rem;
+      top: 8px;
+      width: 10px;
+      height: 10px;
+      background: var(--accent);
+      border-radius: 50%;
+      transform: translateX(-4px);
+    }
+    .timeline-logo {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      padding: 4px;
+      background: #fff;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .timeline-content { flex: 1; }
+    .timeline-item h3 { font-size: 1.1rem; }
+    .timeline-item .company {
+      color: var(--accent);
+      font-weight: 500;
+      font-size: .95rem;
+    }
+    .timeline-item .date {
+      color: var(--text-muted);
+      font-size: .85rem;
+      margin-bottom: .5rem;
+    }
+    .timeline-item p { color: var(--text-muted); font-size: .95rem; }
+
+    /* ---- PROJECTS ---- */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      transition: border-color .2s, transform .2s;
+    }
+    .project-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+    }
+    .project-card h3 { font-size: 1.05rem; margin-bottom: .5rem; }
+    .project-card p {
+      color: var(--text-muted);
+      font-size: .9rem;
+      flex: 1;
+      margin-bottom: 1rem;
+    }
+    .project-links { display: flex; gap: 1rem; }
+    .project-links a {
+      color: var(--accent);
+      font-size: .85rem;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .project-links a:hover { text-decoration: underline; }
+
+    /* ---- CONTACT ---- */
+    .contact-content {
+      text-align: center;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+    .contact-content p {
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+    }
+    .social-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: .9rem;
+      font-weight: 500;
+      padding: .5rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: all .2s;
+    }
+    .social-links a:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* ---- FOOTER ---- */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--text-muted);
+      font-size: .85rem;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 680px) {
+      .about-content { grid-template-columns: 1fr; gap: 1.5rem; }
+      nav ul { gap: .75rem; }
+      nav a { font-size: .8rem; }
+    }
+  </style>
+  <style>
+    :root {
+      --bg: #0b0d10;
+      --surface: #12161b;
+      --surface-strong: #181d23;
+      --text: #f4f7f8;
+      --text-muted: #9aa5ae;
+      --accent: #37d6c0;
+      --accent-strong: #16bba6;
+      --accent-light: rgba(55, 214, 192, .1);
+      --warm: #ffbc66;
+      --border: rgba(255, 255, 255, .1);
+      --radius: 8px;
+    }
+
+    * { scrollbar-width: thin; scrollbar-color: #343b43 var(--bg); }
+
+    body {
+      font-family: "Manrope", sans-serif;
+      background:
+        linear-gradient(rgba(255, 255, 255, .025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .025) 1px, transparent 1px),
+        var(--bg);
+      background-size: 48px 48px;
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0 0 auto;
+      height: 2px;
+      width: var(--scroll-progress, 0%);
+      background: var(--accent);
+      z-index: 200;
+    }
+
+    ::selection { color: var(--bg); background: var(--accent); }
+
+    nav {
+      background: rgba(11, 13, 16, .82);
+      border-color: var(--border);
+      padding: 0 2.5rem;
+    }
+
+    nav .inner { max-width: 1180px; height: 68px; }
+
+    nav .logo {
+      color: var(--text);
+      font-family: "DM Mono", monospace;
+      font-size: 1rem;
+      letter-spacing: 0;
+    }
+
+    nav .logo span { color: var(--accent); }
+    nav ul { gap: 1.75rem; }
+    nav a { color: var(--text-muted); font-size: .78rem; font-weight: 600; }
+    nav a:hover, nav a:focus-visible { color: var(--accent); }
+
+    section {
+      max-width: 1180px;
+      padding: 7rem 2.5rem;
+    }
+
+    section:not(.hero) { border-top: 1px solid var(--border); }
+
+    h2 {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 3rem;
+      font-size: clamp(1.7rem, 3vw, 2.35rem);
+      letter-spacing: 0;
+    }
+
+    h2::before {
+      content: attr(data-index);
+      color: var(--accent);
+      font: 500 .75rem "DM Mono", monospace;
+    }
+
+    h2::after {
+      position: static;
+      width: min(240px, 24vw);
+      height: 1px;
+      background: var(--border);
+      border-radius: 0;
+    }
+
+    .hero {
+      min-height: 94vh;
+      max-width: 1180px;
+      padding: 8rem 2.5rem 5rem;
+      display: grid !important;
+      grid-template-columns: minmax(0, 1.25fr) minmax(280px, .75fr);
+      align-items: center !important;
+      gap: clamp(3rem, 7vw, 7rem) !important;
+    }
+
+    .hero > div:first-child { min-width: 0 !important; }
+
+    .hero .greeting {
+      color: var(--accent);
+      font: 500 .83rem "DM Mono", monospace;
+      letter-spacing: 0;
+      margin-bottom: 1.1rem;
+    }
+
+    .hero h1 {
+      max-width: 760px;
+      margin-bottom: 1.5rem;
+      color: var(--text);
+      font-size: clamp(3rem, 7vw, 6.2rem);
+      font-weight: 800;
+      letter-spacing: -3px;
+      line-height: .98;
+    }
+
+    .hero h1 span { color: var(--accent); }
+
+    .hero p:not(.greeting) {
+      max-width: 650px;
+      margin-bottom: 2.2rem;
+      color: var(--text-muted);
+      font-size: clamp(1rem, 1.7vw, 1.2rem);
+    }
+
+    .hero .cta-group { gap: .8rem; }
+
+    .btn {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: .72rem 1.2rem;
+      border-radius: 6px;
+      font-family: "DM Mono", monospace;
+      font-size: .78rem;
+      transition: transform .2s, background .2s, border-color .2s, color .2s;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--accent); color: #06110f; }
+    .btn-primary:hover { background: #64e4d2; }
+    .btn-outline { border-color: var(--border); color: var(--text); }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+    .hero-portraits {
+      position: relative;
+      display: grid !important;
+      grid-template-columns: 1fr 1fr;
+      gap: .8rem !important;
+      min-width: 0;
+    }
+
+    .hero-portraits::before {
+      content: "ATL  /  SEA";
+      position: absolute;
+      top: -1.8rem;
+      right: 0;
+      color: var(--text-muted);
+      font: .65rem "DM Mono", monospace;
+      letter-spacing: .12em;
+    }
+
+    .hero-portraits img {
+      width: 100% !important;
+      height: clamp(300px, 38vw, 460px) !important;
+      border: 1px solid var(--border) !important;
+      border-radius: var(--radius) !important;
+      filter: saturate(.82) contrast(1.05);
+    }
+
+    .hero-portraits img:first-child { transform: translateY(1.4rem); }
+
+    .about-content { grid-template-columns: 1.15fr .85fr; gap: clamp(2rem, 7vw, 6rem); }
+    .about-content p { color: var(--text-muted); }
+
+    .info-list {
+      padding: 1.25rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    .info-list li { border-color: var(--border); font-size: .84rem; }
+    .info-list li:last-child { border-bottom: 0; }
+    .info-list .label { min-width: 88px; color: var(--accent); font-family: "DM Mono", monospace; font-weight: 500; }
+
+    .skills-grid { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .skill-card, .project-card {
+      background: rgba(18, 22, 27, .86);
+      border-color: var(--border);
+      border-radius: var(--radius);
+      transition: border-color .25s, transform .25s, background .25s;
+    }
+
+    .skill-card:hover, .project-card:hover {
+      border-color: rgba(55, 214, 192, .55);
+      background: var(--surface-strong);
+      transform: translateY(-4px);
+    }
+
+    .skill-card h3, .project-card h3 { color: var(--text); }
+    .tag { background: var(--accent-light); color: #70e6d6; border: 1px solid rgba(55, 214, 192, .12); border-radius: 4px; font-family: "DM Mono", monospace; font-size: .68rem; }
+
+    .timeline { padding-left: 2.6rem; }
+    .timeline::before { background: var(--border); }
+    .timeline-item { gap: 1.4rem; margin-bottom: 3.5rem; }
+    .timeline-item::before { left: -2.6rem; width: 8px; height: 8px; box-shadow: 0 0 0 5px var(--bg); }
+    .timeline-logo { border-color: var(--border); background: #f8fafb; border-radius: 6px; }
+    .timeline-item h3 { color: var(--text); font-size: 1.15rem; }
+    .timeline-item .company { color: var(--accent); }
+    .timeline-item .date { margin: .2rem 0 .75rem; font-family: "DM Mono", monospace; font-size: .72rem; }
+    .timeline-item p { max-width: 900px; color: var(--text-muted); font-size: .91rem; }
+
+    .projects-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .project-card { min-height: 240px; padding: 1.7rem; }
+    .project-card p { color: var(--text-muted); }
+
+    #highlights .project-card:first-child,
+    #highlights .project-card:nth-child(4) { grid-column: span 2; min-height: 210px; }
+
+    #beyond p { color: var(--text-muted) !important; }
+    .contact-content { max-width: 680px; }
+    .contact-content p { font-size: 1.12rem; }
+    .social-links a { border-color: var(--border); color: var(--text-muted); border-radius: 6px; }
+    footer { border-color: var(--border); color: var(--text-muted); font-family: "DM Mono", monospace; font-size: .68rem; }
+
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+
+    @media (max-width: 900px) {
+      nav ul li:nth-child(2), nav ul li:nth-child(4), nav ul li:nth-child(6) { display: none; }
+      .hero { grid-template-columns: 1fr; padding-top: 9rem; }
+      .hero-portraits { width: min(100%, 520px); }
+      .hero-portraits img { height: 420px !important; }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 620px) {
+      nav { padding: 0 1.2rem; }
+      nav ul { gap: 1rem; }
+      nav ul li:nth-child(3) { display: none; }
+      section { padding: 5rem 1.25rem; }
+      .hero { min-height: auto; padding: 8.5rem 1.25rem 5rem; gap: 3rem !important; }
+      .hero h1 { font-size: clamp(2.8rem, 15vw, 4.3rem); letter-spacing: -2px; }
+      .hero-portraits img { height: 190px !important; }
+      .about-content, .skills-grid, .projects-grid { grid-template-columns: 1fr; }
+      #highlights .project-card:first-child, #highlights .project-card:nth-child(4) { grid-column: auto; }
+      .timeline { padding-left: 1.4rem; }
+      .timeline-item { display: block; }
+      .timeline-item::before { left: -1.4rem; }
+      .timeline-logo, .timeline-item > div[style*="width:48px"] { margin-bottom: 1rem; }
+      .project-card { min-height: 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <div class="inner">
+      <a href="#" class="logo" aria-label="Krishan Bhagat, home">KB<span>.</span></a>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#highlights">Impact</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#beyond">Hobbies</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" style="flex-direction:row;align-items:center;gap:3rem;flex-wrap:wrap">
+    <div style="flex:1;min-width:280px">
+      <p class="greeting">Hi, I'm</p>
+      <h1>Krishan<br>Bhagat<span>.</span></h1>
+      <p>Engineering professional with 10+ years building robust production systems across AI/ML, full-stack development, security, and cross-platform infrastructure.</p>
+      <div class="cta-group">
+        <a href="#highlights" class="btn btn-primary">See My Impact</a>
+        <a href="#contact" class="btn btn-outline">Get in Touch</a>
+      </div>
+    </div>
+    <div class="hero-portraits">
+      <img src="assets/travel1.jpg" alt="Krishan in Tokyo" style="width:180px;height:240px;object-fit:cover;border-radius:var(--radius);border:1px solid var(--border)">
+      <img src="assets/travel2.jpg" alt="Krishan in Rome" style="width:180px;height:240px;object-fit:cover;border-radius:var(--radius);border:1px solid var(--border)">
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <h2 data-index="01">About Me</h2>
+    <div class="about-content">
+      <div>
+        <p>I'm a software engineer and technical leader with deep experience shipping high-impact systems at scale. At Microsoft, I work on cross-platform device management across iOS, macOS, as well a Rust-based Linux client, driving security, automation, and AI adoption across teams. I've resolved critical incidents affecting tens of thousands of devices, built automation that became the org-wide standard, and led launch-day validation ensuring our apps are fully functional on the latest OS releases before they ship to customers.</p>
+        <p>As Principal Founding Engineer at Thundergraph, I contributed to building the citations and traceability system and core backend, stood up AWS ECS infrastructure, migrated RBAC from MongoDB to Neo4j, led the authentication migration from Auth0 to Keycloak for full self-hosted identity control, drove SOC 2 compliance, and intern recruiting.</p>
+        <p>I hold an M.S. in Computer Science (Machine Learning, Computational Perception &amp; Robotics) and a B.S. in Computer Engineering (Distributed Systems &amp; Robotics) from Georgia Tech. I care deeply about shipping clean, well-architected code that holds up in production and at scale. I've spent my career at the intersection of AI, systems engineering, and security and I'm looking for the next opportunity to lead at that intersection.</p>
+      </div>
+      <ul class="info-list">
+        <li><span class="label">Location</span> <span>Atlanta, GA (Remote)</span></li>
+        <li><span class="label">Email</span> <span>kbhagat6@gatech.edu</span></li>
+        <li><span class="label">Education</span> <span style="display:flex;align-items:center;gap:.5rem"><img src="assets/gatech.png" alt="Georgia Tech" style="height:32px;width:auto;object-fit:contain">Georgia Institute of Technology</span></li>
+        <li><span class="label">M.S.</span> <span>Computer Science (Machine Learning, Computational Perception &amp; Robotics)</span></li>
+        <li><span class="label">B.S.</span> <span>Computer Engineering (Distributed Systems &amp; Robotics)</span></li>
+        <li><span class="label">Focus</span> <span>Scalable Systems, AI/ML, Security, Cloud Infrastructure</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h2 data-index="02">Skills &amp; Expertise</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>Languages</h3>
+        <div class="tags">
+          <span class="tag">Rust</span>
+          <span class="tag">Python</span>
+          <span class="tag">Java</span>
+          <span class="tag">C++</span>
+          <span class="tag">Swift</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">Node.js</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Apple / Mobile</h3>
+        <div class="tags">
+          <span class="tag">Swift</span>
+          <span class="tag">UIKit</span>
+          <span class="tag">SwiftUI</span>
+          <span class="tag">Objective-C</span>
+          <span class="tag">iOS</span>
+          <span class="tag">macOS</span>
+          <span class="tag">Xcode</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>AI / ML</h3>
+        <div class="tags">
+          <span class="tag">PyTorch</span>
+          <span class="tag">Axolotl</span>
+          <span class="tag">RunPod</span>
+          <span class="tag">RAG</span>
+          <span class="tag">Fine-Tuning</span>
+          <span class="tag">Agents</span>
+          <span class="tag">Reinforcement Learning</span>
+          <span class="tag">Computer Vision</span>
+          <span class="tag">NLP / LLMs</span>
+          <span class="tag">Time Series</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Security &amp; Compliance</h3>
+        <div class="tags">
+          <span class="tag">SOC 2</span>
+          <span class="tag">TPM</span>
+          <span class="tag">SSL/TLS</span>
+          <span class="tag">OCSP Stapling</span>
+          <span class="tag">SSO / Auth</span>
+          <span class="tag">MDM</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Infrastructure &amp; Platforms</h3>
+        <div class="tags">
+          <span class="tag">Azure</span>
+          <span class="tag">AWS</span>
+          <span class="tag">Docker</span>
+          <span class="tag">CI/CD</span>
+          <span class="tag">Jenkins</span>
+          <span class="tag">Graph API</span>
+          <span class="tag">Redis</span>
+          <span class="tag">PostgreSQL</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Leadership</h3>
+        <div class="tags">
+          <span class="tag">Cross-Org Strategy</span>
+          <span class="tag">Architecture</span>
+          <span class="tag">Mentorship</span>
+          <span class="tag">Incident Response</span>
+          <span class="tag">Technical Writing</span>
+          <span class="tag">Hackathon Winner</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Domains</h3>
+        <div class="tags">
+          <span class="tag">Device Management</span>
+          <span class="tag">Cross-Platform (iOS/macOS/Linux)</span>
+          <span class="tag">Healthcare</span>
+          <span class="tag">Automotive</span>
+          <span class="tag">Robotics</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience">
+    <h2 data-index="03">Experience</h2>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div style="width:48px;height:48px;border-radius:8px;border:1px solid var(--border);background:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;color:#fff;font-weight:700;font-size:1rem">E</div>
+        <div class="timeline-content">
+          <h3>AI Consultant/Engineer</h3>
+          <span class="company">Engen (backed by Montauk Capital) &mdash; Remote</span>
+          <p class="date">May 2026 &mdash; Jul 2026</p>
+          <p>Worked on Engen2, an AI-powered CAD generation platform (NL prompt &rarr; LLM-generated CadQuery code &rarr; 3D render), across the full stack: multi-LLM orchestration (Claude, OpenAI, Gemini, Fireworks), candidate generation, 3D viewer/UX, and verification tooling. Developed a fine-tuning pipeline for CadQuery code generation using Hugging Face datasets and RunPod: built data adapters for open CAD datasets (OmniCAD, CADEvolve), designed synthetic data generators for tessellation-verified training examples (holes, chamfers, fillets, brackets, shafts), and ran multiple LoRA fine-tuning iterations on Qwen2.5-Coder-7B, benchmarked against mechanical engineering test cases and deployed via RunPod serverless inference.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <img src="assets/thundergraph.png" alt="Thundergraph" class="timeline-logo">
+        <div class="timeline-content">
+          <h3>Principal Founding Engineer</h3>
+          <span class="company"><a href="https://thundergraph.ai" style="color:var(--accent);text-decoration:none">Thundergraph</a> (AI Startup) &mdash; Remote</span>
+          <p class="date">Nov 2024 &mdash; Jan 2026</p>
+          <p>Built the citations and traceability system and core backend for an AI-powered MBSE platform. Stood up AWS ECS container infrastructure for production hosting. Migrated background task workers from Celery to asynchronous Redis queues for improved task processing efficiency. Migrated RBAC from MongoDB to Neo4j and led authentication migration from Auth0 to Keycloak for full self-hosted identity control. Drove SOC 2 compliance efforts, participated in strategy meetings shaping product direction, and conducted intern recruiting and interviews to build out the engineering team. <a href="https://thundergraph.ai" style="color:var(--accent);font-weight:500;text-decoration:none">thundergraph.ai</a></p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <img src="assets/microsoft.png" alt="Microsoft" class="timeline-logo">
+        <div class="timeline-content">
+          <h3>Software Engineer</h3>
+          <span class="company">Microsoft &mdash; Redmond</span>
+          <p class="date">Apr 2021 &mdash; Present</p>
+          <p>Own cross-platform device management software for iOS, macOS, and Linux (Rust). Drive security, automation, and AI adoption across the org. Resolved critical incidents impacting tens of thousands of devices. Built tenant automation that became the org-wide baseline. Lead launch-day readiness for major Apple and Linux OS releases, including upgrading dependencies, migrating libraries to modern frameworks, and ensuring CI pipeline compatibility. Built and maintained core platform components across all three clients including authentication, enrollment flows, service integrations, derived credentials, certificate migrations, and secure communications. Conducted privacy reviews and threat modeling for new features and services.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <img src="assets/nextgen.png" alt="NextGen Healthcare" class="timeline-logo">
+        <div class="timeline-content">
+          <h3>Software Engineer, R&amp;D</h3>
+          <span class="company">NextGen Healthcare, Inc. &mdash; San Diego</span>
+          <p class="date">Oct 2019 &mdash; Apr 2021</p>
+          <p>Worked on a large-scale EHR/EMS application. Developed inbound/outbound message processors and S3 client service for improving reimbursement and monitoring RCM profitability. Built ML-based customer attrition prediction using time series forecasting based on encounters, claims, and login rates. Developed Jenkins deployment pipelines for standalones/code extractors, loading into Oracle, priming Redis cache, and reindexing search modules. Wrote ETL replication scripts in Redshift for star schema reporting. Created bidirectional SOAP services for states' immunization registries. Rebuilt EHR auditing feature for accurate reconstruction of patient chart changes. Redesigned Patient Portal using Vonage API and created a VR conversational agent using AWS Sumerian/Lex.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <img src="assets/og-image-logo.png" alt="Wyzant" class="timeline-logo">
+        <div class="timeline-content">
+          <h3>Online Tutor</h3>
+          <span class="company">Wyzant &mdash; Remote</span>
+          <p class="date">Aug 2019 &mdash; Feb 2022</p>
+          <p>Supported undergraduate and graduate students with university coursework in programming, data structures, mathematics, and related technical subjects. Provided individualized guidance to help students understand course concepts, solve problems, and complete assignments. Mentored students in Cloud DevOps, providing guidance on software development and deployment practices.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <img src="assets/gm.png" alt="General Motors" class="timeline-logo">
+        <div class="timeline-content">
+          <h3>Software Engineer, Global Sites</h3>
+          <span class="company">General Motors Corp. &mdash; Atlanta</span>
+          <p class="date">Jan 2016 &mdash; Oct 2019</p>
+          <p>Built and maintained Adobe AEM components for GM's global employee websites and portals. Integrated Adobe Analytics for customized click tracking, activity monitoring, and impression analysis across global GM sites. Developed dynamic UI components using Kollective/BrightCove APIs and modified news aggregators to personalize article listings. Implemented a Spring Boot application for archival/ingestion of global GM News and site content. Built employee portals using Workday API with SOAP and integrated SSO authentication. Developed predictive IT dashboards using Python, Microsoft Cognitive Services, and PowerBI. Won 1st place at a GM hackathon with a sentiment analysis model built on scraped social media data to predict marketing campaign effectiveness.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <img src="assets/gtri.png" alt="GTRI" class="timeline-logo">
+        <div class="timeline-content">
+          <h3>Software Engineer Co-op</h3>
+          <span class="company">GTRI &mdash; Intelligence &amp; Robotics Division</span>
+          <p class="date">Jan 2014 &mdash; Aug 2015</p>
+          <p>Developed object recognition APIs for deformable modeling research: 3D pose estimation from depth maps, multi-scale HOG feature extraction, SVM, and KNNs. Built the visual servoing system for a Baxter Robot using ROS, OpenCV, and Xbox Kinect v2 for 3D depth sensing, researching its viability in industrial settings. Developed Baxter calibration using TF publishers and listeners to convert Kinect point clouds to robot coordinates, with C++ bridging PCL and TF libraries.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <section id="highlights">
+    <h2 data-index="04">Impact Highlights</h2>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <h3>Org-Wide Tenant Automation</h3>
+        <p>Built Graph API-based test tenant automation that became the baseline across multiple teams. Saved days-to-weeks of manual setup per team. Authored and published comprehensive provisioning guidance in the engineering hub.</p>
+        <div class="tags" style="margin-bottom:1rem">
+          <span class="tag">Graph API</span>
+          <span class="tag">Automation</span>
+          <span class="tag">Cross-Org</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <h3>Baxter Robot Visual Servoing</h3>
+        <p>Built the computer vision and control system for a Baxter Robot at GTRI, researching its viability for industrial automation. Used ROS and Xbox Kinect v2 for 3D depth sensing. Developed Baxter calibration with TF publishers/listeners to convert Kinect point clouds to robot coordinates. Wrote C++ to bridge PCL and TF libraries, with launch files for streamlined deployment. Got the system fully operational for visual servoing in an industrial research setting.</p>
+        <div class="tags" style="margin-bottom:1rem">
+          <span class="tag">ROS</span>
+          <span class="tag">OpenCV</span>
+          <span class="tag">Kinect v2</span>
+          <span class="tag">C++</span>
+          <span class="tag">PCL</span>
+          <span class="tag">Visual Servoing</span>
+          <span class="tag">Robotics</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <h3>Rust HTTP Client &amp; Security Hardening</h3>
+        <p>Architected the Rust HTTP client for Linux device management software with custom SSL/TLS certificate validation, OCSP stapling, and hostname verification using industry-standard OpenSSL. Eliminated compliance gaps and dependency vulnerabilities.</p>
+        <div class="tags" style="margin-bottom:1rem">
+          <span class="tag">Rust</span>
+          <span class="tag">Security</span>
+          <span class="tag">OpenSSL</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <h3>Thundergraph &mdash; AI Backend &amp; Infrastructure</h3>
+        <p>Contributed to building the citations/traceability system and core backend for an AI-powered MBSE platform. Stood up AWS ECS infrastructure, migrated RBAC from MongoDB to Neo4j, led authentication migration from Auth0 to Keycloak for self-hosted identity control, and drove SOC 2 compliance.</p>
+        <div class="tags" style="margin-bottom:1rem">
+          <span class="tag">AI</span>
+          <span class="tag">AWS ECS</span>
+          <span class="tag">Neo4j</span>
+          <span class="tag">Keycloak</span>
+          <span class="tag">SOC 2</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <h3>AI Copilot Agents for Device Management</h3>
+        <p>Built AI copilot agents that analyze device enrollment, compliance, security configurations, and policy conflicts across Apple, Linux, and Windows, generating actionable reports to optimize security posture. Demoed to the team and joined an AI + Productivity working group to expand AI adoption across the org.</p>
+        <div class="tags" style="margin-bottom:1rem">
+          <span class="tag">AI/ML</span>
+          <span class="tag">Copilot</span>
+          <span class="tag">Cross-Platform</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <h3>GM Hackathon &mdash; 1st Place</h3>
+        <p>Won 1st place at a GM company hackathon with a sentiment analysis model built on scraped social media data to predict marketing campaign effectiveness.</p>
+        <div class="tags" style="margin-bottom:1rem">
+          <span class="tag">Sentiment Analysis</span>
+          <span class="tag">ML</span>
+          <span class="tag">Hackathon</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <h3>Azure Front Door Incident Leadership</h3>
+        <p>Led the response to Azure Front Door changes impacting iOS and macOS client traffic. Directed testing of core enrollment and check-in flows, baselined network telemetry, and coordinated post-change monitoring to prevent customer impact during rollout. Built a telemetry analysis agent to detect regressions and issues during the AFD rollout.</p>
+        <div class="tags" style="margin-bottom:1rem">
+          <span class="tag">Incident Leadership</span>
+          <span class="tag">Azure</span>
+          <span class="tag">Reliability</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <h2 data-index="05">Projects &amp; Awards</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <h3>Continuous Strategy Stock Trader</h3>
+        <p>Continuous state-space reinforcement learner that simulates trading for small and large cap stocks using historical data and technical indicators.</p>
+        <div class="tags" style="margin-bottom:1rem">
+          <span class="tag">Reinforcement Learning</span>
+          <span class="tag">Python</span>
+        </div>
+      </div>
+      <div class="project-card">
+        <h3>Predictive Surgical Readmissions</h3>
+        <p>Built a patient readmission prediction tool using fuzzy sets, C-Means clustering, and KNNs to reduce surgical readmission rates.</p>
+        <div class="tags" style="margin-bottom:1rem">
+          <span class="tag">ML</span>
+          <span class="tag">Healthcare</span>
+        </div>
+      </div>
+      <div class="project-card">
+        <h3>GM Application Vitals App</h3>
+        <p>Android app leveraging IBM Watson's Discovery API to analyze business application health and surface actionable insights.</p>
+        <div class="tags" style="margin-bottom:1rem">
+          <span class="tag">Android</span>
+          <span class="tag">IBM Watson</span>
+        </div>
+      </div>
+      <div class="project-card">
+        <h3>CLI Automation Agents</h3>
+        <p>Built CLI-based agents to automate developer workflows across the Intune org &mdash; tenant provisioning, release tracking, and process orchestration.</p>
+        <div class="tags" style="margin-bottom:1rem">
+          <span class="tag">CLI</span>
+          <span class="tag">Automation</span>
+          <span class="tag">AI</span>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:2rem">
+      <h3 style="font-size:1.05rem; margin-bottom:.75rem;">Awards &amp; Recognition</h3>
+      <ul style="color: var(--text-muted); font-size:.95rem; padding-left:1.2rem;">
+        <li>Microsoft Hackathon &mdash; People's Choice Award (2021)</li>
+        <li>GM Company Hackathon &mdash; 1st Place (2018), 2nd Place (2017)</li>
+        <li>InVenture Prize Semi-finalist (2015)</li>
+        <li>Dean's List, Comcast Scholar, NPGA Scholar, Graduation with Honors</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Beyond the Code -->
+  <section id="beyond" style="padding-bottom:3rem">
+    <h2 data-index="06">Beyond the Code</h2>
+    <p style="color:var(--text-muted);max-width:640px;font-size:1.05rem;line-height:1.7">
+      Outside of work, I'm a huge football fan. Growing up in England, I've been watching the Premier League, Champions League, FA Cup, and Carabao Cup for as long as I can remember. I also enjoy playing soccer, the NBA playoffs, tennis, darts, cooking, working out, and the occasional card game. I love travelling, whether it's heading back to the UK to visit family or exploring somewhere new. Always up for a good conversation or a match day.
+    </p>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2 data-index="07">Contact</h2>
+    <div class="contact-content">
+      <p>I'm interested in technical leadership roles at the intersection of AI, infrastructure, and security. Let's talk.</p>
+      <a href="mailto:kbhagat6@gatech.edu" class="btn btn-primary">Say Hello</a>
+      <div class="social-links">
+        <a href="https://github.com/kbhagat6">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2026 Krishan Bhagat. Georgia Tech &middot; M.S. CS &middot; 10+ Years in Software Engineering.
+  </footer>
+
+  <script>
+    const updateScrollProgress = () => {
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+      document.body.style.setProperty("--scroll-progress", `${progress}%`);
+    };
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll("section:not(.hero) > *").forEach((element) => {
+      element.classList.add("reveal");
+      revealObserver.observe(element);
+    });
+
+    window.addEventListener("scroll", updateScrollProgress, { passive: true });
+    updateScrollProgress();
+  </script>
+
+</body>
+</html>
