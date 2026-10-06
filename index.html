@@ -545,9 +545,92 @@
     #highlights .project-card:nth-child(4) { grid-column: span 2; min-height: 210px; }
 
     #beyond p { color: var(--text-muted) !important; }
-    .contact-content { max-width: 680px; }
-    .contact-content p { font-size: 1.12rem; }
-    .social-links a { border-color: var(--border); color: var(--text-muted); border-radius: 6px; }
+    .contact-content {
+      max-width: none;
+      display: grid;
+      grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+      gap: clamp(3rem, 8vw, 7rem);
+      text-align: left;
+    }
+
+    .contact-intro h3, .contact-form h3 {
+      margin-bottom: 1rem;
+      color: var(--text);
+      font-size: 1.25rem;
+    }
+
+    .contact-content p {
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    .contact-methods {
+      display: grid;
+      gap: .75rem;
+      margin-top: 2rem;
+    }
+
+    .contact-method {
+      display: block;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      text-decoration: none;
+      transition: color .2s, border-color .2s;
+    }
+
+    .contact-method span {
+      display: block;
+      margin-bottom: .2rem;
+      color: var(--accent);
+      font: .68rem "DM Mono", monospace;
+      text-transform: uppercase;
+    }
+
+    .contact-method:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .contact-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .contact-form h3, .form-field-wide, .contact-form button { grid-column: 1 / -1; }
+
+    .form-field { display: grid; gap: .45rem; }
+
+    .form-field label {
+      color: var(--text-muted);
+      font: .72rem "DM Mono", monospace;
+    }
+
+    .form-field input, .form-field textarea {
+      width: 100%;
+      padding: .85rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--surface);
+      color: var(--text);
+      font: inherit;
+      outline: none;
+      transition: border-color .2s, background .2s;
+    }
+
+    .form-field input:focus, .form-field textarea:focus {
+      border-color: var(--accent);
+      background: var(--surface-strong);
+    }
+
+    .form-field textarea { min-height: 150px; resize: vertical; }
+
+    .contact-form button {
+      width: 100%;
+      border: 0;
+      cursor: pointer;
+    }
     footer { border-color: var(--border); color: var(--text-muted); font-family: "DM Mono", monospace; font-size: .68rem; }
 
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
@@ -571,7 +654,7 @@
       .hero { min-height: auto; padding: 8.5rem 1.25rem 5rem; gap: 3rem !important; }
       .hero h1 { font-size: clamp(2.8rem, 15vw, 4.3rem); letter-spacing: -2px; }
       .hero-portraits img { height: 190px !important; }
-      .about-content, .skills-grid, .projects-grid { grid-template-columns: 1fr; }
+      .about-content, .skills-grid, .projects-grid, .contact-content, .contact-form { grid-template-columns: 1fr; }
       #highlights .project-card:first-child, #highlights .project-card:nth-child(4) { grid-column: auto; }
       .timeline { padding-left: 1.4rem; }
       .timeline-item { display: block; }
@@ -627,13 +710,12 @@
     <h2 data-index="01">About Me</h2>
     <div class="about-content">
       <div>
-        <p>I'm a software engineer and technical leader with deep experience shipping high-impact systems at scale. At Microsoft, I work on cross-platform device management across iOS, macOS, as well a Rust-based Linux client, driving security, automation, and AI adoption across teams. I've resolved critical incidents affecting tens of thousands of devices, built automation that became the org-wide standard, and led launch-day validation ensuring our apps are fully functional on the latest OS releases before they ship to customers.</p>
-        <p>Through the Thundergraph project, I contributed to building the citations and traceability system and core backend, stood up AWS ECS infrastructure, migrated RBAC from MongoDB to Neo4j, led the authentication migration from Auth0 to Keycloak for full self-hosted identity control, drove SOC 2 compliance, and supported intern recruiting.</p>
-        <p>I hold an M.S. in Computer Science (Machine Learning, Computational Perception &amp; Robotics) and a B.S. in Computer Engineering (Distributed Systems &amp; Robotics) from Georgia Tech. I care deeply about shipping clean, well-architected code that holds up in production and at scale. I've spent my career at the intersection of AI, systems engineering, and security and I'm looking for the next opportunity to lead at that intersection.</p>
+        <p>I'm a software engineer with experience building production systems across cross-platform device management, AI-powered workflows, cloud infrastructure, and security. At Microsoft, I build device management software for Apple and Linux devices, with work spanning authentication, enrollment, service integrations, secure communications, and launch readiness for new OS releases. I've resolved incidents affecting tens of thousands of devices and built automation that became a standard across the organization. I also use AI to improve engineering workflows within my team and share successful approaches with other teams when they offer broader value.</p>
+        <p>My recent experience also includes two AI-powered engineering projects. I contributed to a systems engineering product involving citations and traceability, backend services, graph-based access control, authentication, and AWS infrastructure. I also worked on an agentic CAD system designed to automate geometry creation and mechanical-engineering workflows, contributing to multi-model orchestration, verification tooling, and fine-tuning pipelines.</p>
+        <p>I hold an M.S. in Computer Science, focused on Machine Learning, Computational Perception, and Robotics, and a B.S. in Computer Engineering, focused on Distributed Systems and Robotics, from Georgia Tech. I enjoy solving problems at the intersection of software engineering, AI, infrastructure, and security, particularly when complex workflows can be transformed into reliable, practical tools.</p>
       </div>
       <ul class="info-list">
-        <li><span class="label">Location</span> <span>Atlanta, GA (Remote)</span></li>
-        <li><span class="label">Email</span> <span>kbhagat6@gatech.edu</span></li>
+        <li><span class="label">Email</span> <a href="mailto:krishanb1000@gmail.com">krishanb1000@gmail.com</a></li>
         <li><span class="label">Education</span> <span style="display:flex;align-items:center;gap:.5rem"><img src="assets/gatech.png" alt="Georgia Tech" style="height:32px;width:auto;object-fit:contain">Georgia Institute of Technology</span></li>
         <li><span class="label">M.S.</span> <span>Computer Science (Machine Learning, Computational Perception &amp; Robotics)</span></li>
         <li><span class="label">B.S.</span> <span>Computer Engineering (Distributed Systems &amp; Robotics)</span></li>
@@ -883,7 +965,7 @@
     <h2 data-index="05">Projects &amp; Awards</h2>
     <div class="projects-grid">
       <div class="project-card">
-        <h3>Engen2 AI CAD Platform</h3>
+        <h3>Engen: AI-Powered CAD Platform</h3>
         <p>Contributed across the full stack of an AI-powered CAD generation platform that transforms natural-language prompts into LLM-generated CadQuery code and interactive 3D renders. Built multi-LLM orchestration, candidate generation, viewer UX, verification tooling, and a fine-tuning pipeline using open CAD datasets, synthetic tessellation-verified examples, LoRA, Qwen2.5-Coder-7B, and RunPod serverless inference.</p>
         <div class="tags" style="margin-bottom:1rem">
           <span class="tag">Generative AI</span>
@@ -959,7 +1041,7 @@
   <section id="beyond" style="padding-bottom:3rem">
     <h2 data-index="06">Beyond the Code</h2>
     <p style="color:var(--text-muted);max-width:640px;font-size:1.05rem;line-height:1.7">
-      Outside of work, I'm a lifelong English football fan. Growing up in the UK, I came to follow most English sports, and I still enjoy playing pickup soccer whenever I can. Staying active is important to me, so working out is also a regular part of my routine. I occasionally follow the NBA playoffs, tennis, and darts, and I enjoy spending time with friends, exploring new places, and heading back to the UK to visit family. I'm always up for a good conversation or a match day.
+      Outside of work, I'm a lifelong English football fan. I grew up in the UK before moving to the United States, and British sports have remained a big part of my life. I enjoy playing pickup soccer, working out, following tennis, darts, and the NBA playoffs, spending time with family and friends, and exploring new places. I'm always open to a good conversation, so feel free to reach out and connect.
     </p>
   </section>
 
@@ -967,11 +1049,40 @@
   <section id="contact">
     <h2 data-index="07">Contact</h2>
     <div class="contact-content">
-      <p>I'm interested in technical leadership roles at the intersection of AI, infrastructure, and security. Let's talk.</p>
-      <a href="mailto:kbhagat6@gatech.edu" class="btn btn-primary">Say Hello</a>
-      <div class="social-links">
-        <a href="https://github.com/kbhagat6">GitHub</a>
+      <div class="contact-intro">
+        <h3>Let's connect</h3>
+        <p>I'm interested in opportunities at the intersection of software engineering, AI, infrastructure, and security. Feel free to reach out about a role, project, or idea.</p>
+        <div class="contact-methods">
+          <a class="contact-method" href="mailto:krishanb1000@gmail.com">
+            <span>Email</span>
+            krishanb1000@gmail.com
+          </a>
+          <a class="contact-method" href="https://github.com/kbhagat6" target="_blank" rel="noopener noreferrer">
+            <span>GitHub</span>
+            github.com/kbhagat6
+          </a>
+        </div>
       </div>
+      <form class="contact-form" id="contact-form">
+        <h3>Send a message</h3>
+        <div class="form-field">
+          <label for="contact-name">Name</label>
+          <input id="contact-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="form-field">
+          <label for="contact-email">Email</label>
+          <input id="contact-email" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div class="form-field form-field-wide">
+          <label for="contact-subject">Subject</label>
+          <input id="contact-subject" name="subject" type="text" required>
+        </div>
+        <div class="form-field form-field-wide">
+          <label for="contact-message">Message</label>
+          <textarea id="contact-message" name="message" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+      </form>
     </div>
   </section>
 
@@ -1002,6 +1113,16 @@
 
     window.addEventListener("scroll", updateScrollProgress, { passive: true });
     updateScrollProgress();
+
+    document.querySelector("#contact-form").addEventListener("submit", (event) => {
+      event.preventDefault();
+      const formData = new FormData(event.currentTarget);
+      const subject = encodeURIComponent(formData.get("subject"));
+      const body = encodeURIComponent(
+        `Name: ${formData.get("name")}\nEmail: ${formData.get("email")}\n\n${formData.get("message")}`
+      );
+      window.location.href = `mailto:krishanb1000@gmail.com?subject=${subject}&body=${body}`;
+    });
   </script>
 
 </body>
