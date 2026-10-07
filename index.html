@@ -525,6 +525,12 @@
     }
 
     .skill-card h3, .project-card h3 { color: var(--text); }
+    .project-year {
+      margin-left: .45rem;
+      color: var(--text-muted);
+      font: 400 .68rem "DM Mono", monospace;
+      white-space: nowrap;
+    }
     .tag { background: var(--accent-light); color: #70e6d6; border: 1px solid rgba(55, 214, 192, .12); border-radius: 4px; font-family: "DM Mono", monospace; font-size: .68rem; }
 
     .timeline { padding-left: 2.6rem; }
@@ -903,7 +909,7 @@
     <div class="projects-grid">
 
       <div class="project-card">
-        <h3>Org-Wide Tenant Automation</h3>
+        <h3>Org-Wide Tenant Automation <span class="project-year">2026</span></h3>
         <p>Built Graph API-based test tenant automation that became the baseline across multiple teams. Saved days-to-weeks of manual setup per team. Authored and published comprehensive provisioning guidance in the engineering hub.</p>
         <div class="tags" style="margin-bottom:1rem">
           <span class="tag">Graph API</span>
@@ -913,7 +919,7 @@
       </div>
 
       <div class="project-card">
-        <h3>Baxter Robot Visual Servoing</h3>
+        <h3>Baxter Robot Visual Servoing <span class="project-year">2015</span></h3>
         <p>Built a computer vision and control system for a Baxter Robot at GTRI to evaluate its potential for industrial automation. Using 3D depth data from an Xbox Kinect v2, I developed calibration software that translated camera observations into the robot's coordinate system. I also wrote C++ to integrate the Point Cloud Library (PCL) with the robot's transformation framework and created launch files to streamline deployment, bringing the visual servoing system to a fully operational state in a research environment.</p>
         <div class="tags" style="margin-bottom:1rem">
           <span class="tag">ROS</span>
@@ -927,7 +933,7 @@
       </div>
 
       <div class="project-card">
-        <h3>AI Copilot Agents for Device Management</h3>
+        <h3>AI Copilot Agents for Device Management <span class="project-year">Hackathon Project</span></h3>
         <p>Built AI copilot agents that analyze device enrollment, compliance, security configurations, and policy conflicts across Apple, Linux, and Windows, generating actionable reports to optimize security posture. Demoed to the team and joined an AI + Productivity working group to expand AI adoption across the org.</p>
         <div class="tags" style="margin-bottom:1rem">
           <span class="tag">AI/ML</span>
@@ -937,8 +943,8 @@
       </div>
 
       <div class="project-card">
-        <h3>GM Hackathon &mdash; 1st Place</h3>
-        <p>Won 1st place at a GM company hackathon with a sentiment analysis model built on scraped social media data to predict marketing campaign effectiveness.</p>
+        <h3>GM Hackathon &mdash; 1st Place <span class="project-year">2018</span></h3>
+        <p>Won first place at a General Motors hackathon by building a sentiment analysis model that evaluated public social-media reactions to help estimate marketing campaign effectiveness.</p>
         <div class="tags" style="margin-bottom:1rem">
           <span class="tag">Sentiment Analysis</span>
           <span class="tag">ML</span>
@@ -947,7 +953,7 @@
       </div>
 
       <div class="project-card">
-        <h3>Azure Front Door Incident Leadership</h3>
+        <h3>Azure Front Door Incident Leadership <span class="project-year">2026</span></h3>
         <p>Led the response to Azure Front Door changes impacting iOS and macOS client traffic. Directed testing of core enrollment and check-in flows, baselined network telemetry, and coordinated post-change monitoring to prevent customer impact during rollout. Built a telemetry analysis agent to detect regressions and issues during the AFD rollout.</p>
         <div class="tags" style="margin-bottom:1rem">
           <span class="tag">Incident Leadership</span>
@@ -992,7 +998,7 @@
         </div>
       </div>
       <div class="project-card">
-        <h3>Continuous Strategy Stock Trader</h3>
+        <h3>Continuous Strategy Stock Trader <span class="project-year">2017</span></h3>
         <p>Continuous state-space reinforcement learner that simulates trading for small and large cap stocks using historical data and technical indicators.</p>
         <div class="tags" style="margin-bottom:1rem">
           <span class="tag">Reinforcement Learning</span>
@@ -1000,7 +1006,7 @@
         </div>
       </div>
       <div class="project-card">
-        <h3>Predictive Surgical Readmissions</h3>
+        <h3>Predictive Surgical Readmissions <span class="project-year">2017</span></h3>
         <p>Built a patient readmission prediction tool using fuzzy sets, C-Means clustering, and KNNs to reduce surgical readmission rates.</p>
         <div class="tags" style="margin-bottom:1rem">
           <span class="tag">ML</span>
@@ -1008,7 +1014,7 @@
         </div>
       </div>
       <div class="project-card">
-        <h3>GM Application Vitals App</h3>
+        <h3>GM Application Vitals App <span class="project-year">2018</span></h3>
         <p>Android app leveraging IBM Watson's Discovery API to analyze business application health and surface actionable insights.</p>
         <div class="tags" style="margin-bottom:1rem">
           <span class="tag">Android</span>
@@ -1016,7 +1022,7 @@
         </div>
       </div>
       <div class="project-card">
-        <h3>CLI Automation Agents</h3>
+        <h3>CLI Automation Agents <span class="project-year">2026</span></h3>
         <p>Built CLI-based agents to automate developer workflows across the Intune org &mdash; tenant provisioning, release tracking, and process orchestration.</p>
         <div class="tags" style="margin-bottom:1rem">
           <span class="tag">CLI</span>
