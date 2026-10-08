@@ -554,9 +554,6 @@
     .project-card { min-height: 240px; padding: 1.7rem; }
     .project-card p { color: var(--text-muted); }
 
-    #highlights .project-card:first-child,
-    #highlights .project-card:nth-child(4) { grid-column: span 2; min-height: 210px; }
-
     #beyond p { color: var(--text-muted) !important; }
     .contact-content {
       max-width: none;
@@ -668,7 +665,6 @@
       .hero h1 { font-size: clamp(2.8rem, 15vw, 4.3rem); letter-spacing: -2px; }
       .hero-portraits img { height: 190px !important; }
       .about-content, .skills-grid, .projects-grid, .contact-content, .contact-form { grid-template-columns: 1fr; }
-      #highlights .project-card:first-child, #highlights .project-card:nth-child(4) { grid-column: auto; }
       .timeline { padding-left: 1.4rem; }
       .timeline-item { display: block; }
       .timeline-item::before { left: -1.4rem; }
@@ -693,7 +689,6 @@
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#experience">Experience</a></li>
-        <li><a href="#highlights">Impact</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#beyond">Hobbies</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -708,7 +703,7 @@
       <h1>Krishan<br>Bhagat<span>.</span></h1>
       <p>Software engineer with 10+ years of experience building production systems across full-stack development, AI-enabled workflows, security, and cross-platform infrastructure.</p>
       <div class="cta-group">
-        <a href="#highlights" class="btn btn-primary">See My Impact</a>
+        <a href="#projects" class="btn btn-primary">View My Work</a>
         <a href="#contact" class="btn btn-outline">Get in Touch</a>
       </div>
     </div>
@@ -910,36 +905,9 @@
 
     </div>
   </section>
-  <section id="highlights">
-    <h2 data-index="04">Impact Highlights</h2>
-    <div class="projects-grid">
-
-      <div class="project-card">
-        <h3>Org-Wide Tenant Automation <span class="project-year">2026</span></h3>
-        <p>Built Graph API-based test tenant automation that became the baseline across multiple teams. Saved days-to-weeks of manual setup per team. Authored and published comprehensive provisioning guidance in the engineering hub.</p>
-        <div class="tags" style="margin-bottom:1rem">
-          <span class="tag">Graph API</span>
-          <span class="tag">Automation</span>
-          <span class="tag">Cross-Org</span>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <h3>Azure Front Door Incident Leadership <span class="project-year">2026</span></h3>
-        <p>Led the response to Azure Front Door changes impacting iOS and macOS client traffic. Directed testing of core enrollment and check-in flows, baselined network telemetry, and coordinated post-change monitoring to prevent customer impact during rollout. Built a telemetry analysis agent to detect regressions and issues during the AFD rollout.</p>
-        <div class="tags" style="margin-bottom:1rem">
-          <span class="tag">Incident Leadership</span>
-          <span class="tag">Azure</span>
-          <span class="tag">Reliability</span>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
   <!-- Projects -->
   <section id="projects">
-    <h2 data-index="05">Projects &amp; Awards</h2>
+    <h2 data-index="04">Projects &amp; Awards</h2>
     <div class="projects-grid">
       <div class="project-card">
         <h3>Engen: AI-Powered CAD Platform</h3>
@@ -1020,7 +988,7 @@
 
   <!-- Beyond the Code -->
   <section id="beyond" style="padding-bottom:3rem">
-    <h2 data-index="06">Beyond the Code</h2>
+    <h2 data-index="05">Beyond the Code</h2>
     <p style="color:var(--text-muted);max-width:640px;font-size:1.05rem;line-height:1.7">
       Outside of work, I'm a lifelong English football fan. I grew up in the UK before moving to the United States, and British sports have remained a big part of my life. I enjoy playing pickup soccer, working out, and exploring new places. I also follow tennis, darts, and the NBA playoffs, and enjoy spending time with family and friends. I'm always open to a good conversation, so feel free to reach out and connect.
     </p>
@@ -1028,7 +996,7 @@
 
   <!-- Contact -->
   <section id="contact">
-    <h2 data-index="07">Contact</h2>
+    <h2 data-index="06">Contact</h2>
     <div class="contact-content">
       <div class="contact-intro">
         <h3>Let's connect</h3>
